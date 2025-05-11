@@ -1,0 +1,745 @@
+2025-04-29 00:00:29 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 2 class path changes (0 additions, 2 deletions, 0 modifications)
+2025-04-29 00:00:29 [Thread-11] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2025-04-29 00:00:29 [Thread-11] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-04-29 00:00:29 [Thread-11] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Shutdown initiated...
+2025-04-29 00:00:29 [Thread-11] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Shutdown completed.
+2025-04-29 00:00:30 [restartedMain] INFO  c.t.f.FaceAttendanceApplication - Starting FaceAttendanceApplication using Java 24 with PID 28520 (C:\wamp64\www\face-attendance-system\backend\face-attendance\target\classes started by thanh in C:\wamp64\www\face-attendance-system\backend\face-attendance)
+2025-04-29 00:00:30 [restartedMain] DEBUG c.t.f.FaceAttendanceApplication - Running with Spring Boot v3.2.3, Spring v6.1.4
+2025-04-29 00:00:30 [restartedMain] INFO  c.t.f.FaceAttendanceApplication - No active profile set, falling back to 1 default profile: "default"
+2025-04-29 00:00:30 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-04-29 00:00:30 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 53 ms. Found 18 JPA repository interfaces.
+2025-04-29 00:00:31 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-04-29 00:00:31 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-04-29 00:00:31 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-04-29 00:00:31 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2025-04-29 00:00:31 [restartedMain] INFO  o.a.c.c.C.[Tomcat-1].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-04-29 00:00:31 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1051 ms
+2025-04-29 00:00:31 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-04-29 00:00:31 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-04-29 00:00:31 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-04-29 00:00:31 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-5 - Starting...
+2025-04-29 00:00:31 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-5 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2f4ad3de
+2025-04-29 00:00:31 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-5 - Start completed.
+2025-04-29 00:00:31 [restartedMain] WARN  org.hibernate.dialect.Dialect - HHH000511: The 5.5.0 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
+2025-04-29 00:00:31 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-04-29 00:00:31 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-04-29 00:00:31 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-04-29 00:00:31 [restartedMain] DEBUG c.t.f.S.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
+2025-04-29 00:00:32 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-04-29 00:00:33 [restartedMain] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 3 endpoint(s) beneath base path '/actuator'
+2025-04-29 00:00:33 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@726a3002, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2aab9543, org.springframework.security.web.context.SecurityContextHolderFilter@47145d25, org.springframework.security.web.header.HeaderWriterFilter@45d9a684, org.springframework.web.filter.CorsFilter@2e06a956, org.springframework.security.web.authentication.logout.LogoutFilter@761d66ec, com.tathanhloc.faceattendance.Security.JwtAuthenticationFilter@18ee4f0d, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6d7bf6a4, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5dfb58c0, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3e561e65, org.springframework.security.web.session.SessionManagementFilter@5c717f2d, org.springframework.security.web.access.ExceptionTranslationFilter@633dfea6, org.springframework.security.web.access.intercept.AuthorizationFilter@3e8cd2ae]
+2025-04-29 00:00:33 [restartedMain] WARN  o.s.b.a.t.ThymeleafAutoConfiguration$DefaultTemplateResolverConfiguration - Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2025-04-29 00:00:34 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-04-29 00:00:34 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-04-29 00:00:34 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-04-29 00:00:34 [restartedMain] INFO  c.t.f.FaceAttendanceApplication - Started FaceAttendanceApplication in 4.5 seconds (process running for 1193.287)
+2025-04-29 00:00:34 [restartedMain] DEBUG org.hibernate.SQL - 
+    select
+        tk1_0.id,
+        tk1_0.created_at,
+        tk1_0.ma_gv,
+        tk1_0.is_active,
+        tk1_0.password_hash,
+        tk1_0.ma_sv,
+        tk1_0.username,
+        tk1_0.vai_tro 
+    from
+        taikhoan tk1_0 
+    where
+        tk1_0.username=?
+2025-04-29 00:00:34 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2025-04-29 00:00:58 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 2 class path changes (0 additions, 2 deletions, 0 modifications)
+2025-04-29 00:00:58 [Thread-18] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2025-04-29 00:00:58 [Thread-18] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-04-29 00:00:58 [Thread-18] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-5 - Shutdown initiated...
+2025-04-29 00:00:58 [Thread-18] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-5 - Shutdown completed.
+2025-04-29 00:00:58 [restartedMain] INFO  c.t.f.FaceAttendanceApplication - Starting FaceAttendanceApplication using Java 24 with PID 28520 (C:\wamp64\www\face-attendance-system\backend\face-attendance\target\classes started by thanh in C:\wamp64\www\face-attendance-system\backend\face-attendance)
+2025-04-29 00:00:58 [restartedMain] DEBUG c.t.f.FaceAttendanceApplication - Running with Spring Boot v3.2.3, Spring v6.1.4
+2025-04-29 00:00:58 [restartedMain] INFO  c.t.f.FaceAttendanceApplication - No active profile set, falling back to 1 default profile: "default"
+2025-04-29 00:00:59 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-04-29 00:00:59 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 35 ms. Found 18 JPA repository interfaces.
+2025-04-29 00:00:59 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-04-29 00:00:59 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-04-29 00:00:59 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-04-29 00:00:59 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2025-04-29 00:00:59 [restartedMain] INFO  o.a.c.c.C.[Tomcat-1].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-04-29 00:00:59 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 787 ms
+2025-04-29 00:00:59 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-04-29 00:00:59 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-04-29 00:00:59 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-04-29 00:00:59 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-6 - Starting...
+2025-04-29 00:00:59 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-6 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7cdb9590
+2025-04-29 00:00:59 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-6 - Start completed.
+2025-04-29 00:00:59 [restartedMain] WARN  org.hibernate.dialect.Dialect - HHH000511: The 5.5.0 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
+2025-04-29 00:00:59 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-04-29 00:01:00 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-04-29 00:01:00 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-04-29 00:01:00 [restartedMain] DEBUG c.t.f.S.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
+2025-04-29 00:01:00 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-04-29 00:01:01 [restartedMain] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 3 endpoint(s) beneath base path '/actuator'
+2025-04-29 00:01:01 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@655a0b5c, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@493b64c, org.springframework.security.web.context.SecurityContextHolderFilter@3d296c44, org.springframework.security.web.header.HeaderWriterFilter@6a7a71c9, org.springframework.web.filter.CorsFilter@40bf58c7, org.springframework.security.web.authentication.logout.LogoutFilter@26ecb7ae, com.tathanhloc.faceattendance.Security.JwtAuthenticationFilter@796f47ca, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5aee424f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1da21341, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@29cb6465, org.springframework.security.web.session.SessionManagementFilter@57820fda, org.springframework.security.web.access.ExceptionTranslationFilter@2b9c263e, org.springframework.security.web.access.intercept.AuthorizationFilter@6d618922]
+2025-04-29 00:01:01 [restartedMain] WARN  o.s.b.a.t.ThymeleafAutoConfiguration$DefaultTemplateResolverConfiguration - Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2025-04-29 00:01:01 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-04-29 00:01:01 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-04-29 00:01:01 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-04-29 00:01:01 [restartedMain] INFO  c.t.f.FaceAttendanceApplication - Started FaceAttendanceApplication in 2.814 seconds (process running for 1220.404)
+2025-04-29 00:01:01 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat-1].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-04-29 00:01:01 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-04-29 00:01:01 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2025-04-29 00:01:01 [http-nio-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/index.html
+2025-04-29 00:01:01 [http-nio-8080-exec-1] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-04-29 00:01:01 [http-nio-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/index.html
+2025-04-29 00:01:01 [restartedMain] DEBUG org.hibernate.SQL - 
+    select
+        tk1_0.id,
+        tk1_0.created_at,
+        tk1_0.ma_gv,
+        tk1_0.is_active,
+        tk1_0.password_hash,
+        tk1_0.ma_sv,
+        tk1_0.username,
+        tk1_0.vai_tro 
+    from
+        taikhoan tk1_0 
+    where
+        tk1_0.username=?
+2025-04-29 00:01:01 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2025-04-29 00:01:01 [http-nio-8080-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/swagger-ui.css
+2025-04-29 00:01:01 [http-nio-8080-exec-2] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-04-29 00:01:01 [http-nio-8080-exec-2] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/swagger-ui.css
+2025-04-29 00:01:01 [http-nio-8080-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/index.css
+2025-04-29 00:01:01 [http-nio-8080-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/swagger-ui-bundle.js
+2025-04-29 00:01:01 [http-nio-8080-exec-3] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-04-29 00:01:01 [http-nio-8080-exec-4] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-04-29 00:01:01 [http-nio-8080-exec-3] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/index.css
+2025-04-29 00:01:01 [http-nio-8080-exec-4] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/swagger-ui-bundle.js
+2025-04-29 00:01:01 [http-nio-8080-exec-5] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/swagger-ui-standalone-preset.js
+2025-04-29 00:01:01 [http-nio-8080-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/swagger-initializer.js
+2025-04-29 00:01:01 [http-nio-8080-exec-6] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-04-29 00:01:01 [http-nio-8080-exec-5] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-04-29 00:01:01 [http-nio-8080-exec-6] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/swagger-initializer.js
+2025-04-29 00:01:01 [http-nio-8080-exec-5] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/swagger-ui-standalone-preset.js
+2025-04-29 00:01:01 [http-nio-8080-exec-7] DEBUG o.s.security.web.FilterChainProxy - Securing GET /v3/api-docs/swagger-config
+2025-04-29 00:01:01 [http-nio-8080-exec-7] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-04-29 00:01:01 [http-nio-8080-exec-7] DEBUG o.s.security.web.FilterChainProxy - Secured GET /v3/api-docs/swagger-config
+2025-04-29 00:01:01 [http-nio-8080-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/favicon-32x32.png
+2025-04-29 00:01:01 [http-nio-8080-exec-8] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-04-29 00:01:01 [http-nio-8080-exec-8] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/favicon-32x32.png
+2025-04-29 00:01:01 [http-nio-8080-exec-9] DEBUG o.s.security.web.FilterChainProxy - Securing GET /v3/api-docs
+2025-04-29 00:01:01 [http-nio-8080-exec-9] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-04-29 00:01:01 [http-nio-8080-exec-9] DEBUG o.s.security.web.FilterChainProxy - Secured GET /v3/api-docs
+2025-04-29 00:01:01 [http-nio-8080-exec-10] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/favicon-32x32.png
+2025-04-29 00:01:01 [http-nio-8080-exec-10] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-04-29 00:01:01 [http-nio-8080-exec-10] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/favicon-32x32.png
+2025-04-29 00:01:02 [http-nio-8080-exec-9] INFO  o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 425 ms
+2025-04-29 00:01:04 [http-nio-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/giangvien
+2025-04-29 00:01:04 [http-nio-8080-exec-1] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-04-29 00:01:27 [http-nio-8080-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/sinhviens/embeddings
+2025-04-29 00:01:27 [http-nio-8080-exec-8] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-04-29 00:01:27 [http-nio-8080-exec-10] DEBUG o.s.security.web.FilterChainProxy - Securing GET /favicon.ico
+2025-04-29 00:01:27 [http-nio-8080-exec-10] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-04-29 00:04:43 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 1 deletion, 0 modifications)
+2025-04-29 00:04:43 [Thread-22] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2025-04-29 00:04:43 [Thread-22] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-04-29 00:04:43 [Thread-22] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-6 - Shutdown initiated...
+2025-04-29 00:04:43 [Thread-22] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-6 - Shutdown completed.
+2025-04-29 00:04:43 [restartedMain] INFO  c.t.f.FaceAttendanceApplication - Starting FaceAttendanceApplication using Java 24 with PID 28520 (C:\wamp64\www\face-attendance-system\backend\face-attendance\target\classes started by thanh in C:\wamp64\www\face-attendance-system\backend\face-attendance)
+2025-04-29 00:04:43 [restartedMain] DEBUG c.t.f.FaceAttendanceApplication - Running with Spring Boot v3.2.3, Spring v6.1.4
+2025-04-29 00:04:43 [restartedMain] INFO  c.t.f.FaceAttendanceApplication - No active profile set, falling back to 1 default profile: "default"
+2025-04-29 00:04:44 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-04-29 00:04:44 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 41 ms. Found 18 JPA repository interfaces.
+2025-04-29 00:04:45 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-04-29 00:04:45 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-04-29 00:04:45 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-04-29 00:04:45 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2025-04-29 00:04:45 [restartedMain] INFO  o.a.c.c.C.[Tomcat-1].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-04-29 00:04:45 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1267 ms
+2025-04-29 00:04:45 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-04-29 00:04:45 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-04-29 00:04:45 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-04-29 00:04:45 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-7 - Starting...
+2025-04-29 00:04:45 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-7 - Added connection com.mysql.cj.jdbc.ConnectionImpl@792648de
+2025-04-29 00:04:45 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-7 - Start completed.
+2025-04-29 00:04:45 [restartedMain] WARN  org.hibernate.dialect.Dialect - HHH000511: The 5.5.0 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
+2025-04-29 00:04:45 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-04-29 00:04:45 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-04-29 00:04:45 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-04-29 00:04:46 [restartedMain] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'securityConfig' defined in file [C:\wamp64\www\face-attendance-system\backend\face-attendance\target\classes\com\tathanhloc\faceattendance\Config\SecurityConfig.class]: Unsatisfied dependency expressed through constructor parameter 2: No qualifying bean of type 'com.tathanhloc.faceattendance.Security.JwtAuthenticationFilter' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2025-04-29 00:04:46 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-04-29 00:04:46 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-7 - Shutdown initiated...
+2025-04-29 00:04:46 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-7 - Shutdown completed.
+2025-04-29 00:04:46 [restartedMain] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2025-04-29 00:04:46 [restartedMain] INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-04-29 00:04:46 [restartedMain] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 2 of constructor in com.tathanhloc.faceattendance.Config.SecurityConfig required a bean of type 'com.tathanhloc.faceattendance.Security.JwtAuthenticationFilter' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'com.tathanhloc.faceattendance.Security.JwtAuthenticationFilter' in your configuration.
+
+2025-04-29 00:05:17 [restartedMain] INFO  c.t.f.FaceAttendanceApplication - Starting FaceAttendanceApplication using Java 24 with PID 28520 (C:\wamp64\www\face-attendance-system\backend\face-attendance\target\classes started by thanh in C:\wamp64\www\face-attendance-system\backend\face-attendance)
+2025-04-29 00:05:17 [restartedMain] DEBUG c.t.f.FaceAttendanceApplication - Running with Spring Boot v3.2.3, Spring v6.1.4
+2025-04-29 00:05:17 [restartedMain] INFO  c.t.f.FaceAttendanceApplication - No active profile set, falling back to 1 default profile: "default"
+2025-04-29 00:05:17 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-04-29 00:05:17 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 40 ms. Found 18 JPA repository interfaces.
+2025-04-29 00:05:18 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-04-29 00:05:18 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-04-29 00:05:18 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-04-29 00:05:18 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2025-04-29 00:05:18 [restartedMain] INFO  o.a.c.c.C.[Tomcat-2].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-04-29 00:05:18 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 690 ms
+2025-04-29 00:05:18 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-04-29 00:05:18 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-04-29 00:05:18 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-04-29 00:05:18 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-8 - Starting...
+2025-04-29 00:05:18 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-8 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4d51639a
+2025-04-29 00:05:18 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-8 - Start completed.
+2025-04-29 00:05:18 [restartedMain] WARN  org.hibernate.dialect.Dialect - HHH000511: The 5.5.0 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
+2025-04-29 00:05:18 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-04-29 00:05:18 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-04-29 00:05:18 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-04-29 00:05:18 [restartedMain] DEBUG c.t.f.S.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
+2025-04-29 00:05:18 [restartedMain] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'authController' defined in file [C:\wamp64\www\face-attendance-system\backend\face-attendance\target\classes\com\tathanhloc\faceattendance\Controller\AuthController.class]: Unsatisfied dependency expressed through constructor parameter 0: No qualifying bean of type 'org.springframework.security.authentication.AuthenticationManager' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2025-04-29 00:05:18 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-04-29 00:05:18 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-8 - Shutdown initiated...
+2025-04-29 00:05:18 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-8 - Shutdown completed.
+2025-04-29 00:05:18 [restartedMain] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2025-04-29 00:05:18 [restartedMain] INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-04-29 00:05:18 [restartedMain] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 0 of constructor in com.tathanhloc.faceattendance.Controller.AuthController required a bean of type 'org.springframework.security.authentication.AuthenticationManager' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'org.springframework.security.authentication.AuthenticationManager' in your configuration.
+
+2025-04-29 00:05:27 [restartedMain] INFO  c.t.f.FaceAttendanceApplication - Starting FaceAttendanceApplication using Java 24 with PID 28520 (C:\wamp64\www\face-attendance-system\backend\face-attendance\target\classes started by thanh in C:\wamp64\www\face-attendance-system\backend\face-attendance)
+2025-04-29 00:05:27 [restartedMain] DEBUG c.t.f.FaceAttendanceApplication - Running with Spring Boot v3.2.3, Spring v6.1.4
+2025-04-29 00:05:27 [restartedMain] INFO  c.t.f.FaceAttendanceApplication - No active profile set, falling back to 1 default profile: "default"
+2025-04-29 00:05:28 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-04-29 00:05:28 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 33 ms. Found 18 JPA repository interfaces.
+2025-04-29 00:05:28 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-04-29 00:05:28 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-04-29 00:05:28 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-04-29 00:05:28 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2025-04-29 00:05:28 [restartedMain] INFO  o.a.c.c.C.[Tomcat-3].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-04-29 00:05:28 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 562 ms
+2025-04-29 00:05:28 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-04-29 00:05:28 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-04-29 00:05:28 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-04-29 00:05:28 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-9 - Starting...
+2025-04-29 00:05:28 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-9 - Added connection com.mysql.cj.jdbc.ConnectionImpl@56def3d
+2025-04-29 00:05:28 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-9 - Start completed.
+2025-04-29 00:05:28 [restartedMain] WARN  org.hibernate.dialect.Dialect - HHH000511: The 5.5.0 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
+2025-04-29 00:05:28 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-04-29 00:05:28 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-04-29 00:05:28 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-04-29 00:05:28 [restartedMain] DEBUG c.t.f.S.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
+2025-04-29 00:05:29 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-04-29 00:05:30 [restartedMain] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 3 endpoint(s) beneath base path '/actuator'
+2025-04-29 00:05:30 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@62b9cfff, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@21c6b1a9, org.springframework.security.web.context.SecurityContextHolderFilter@28b5aadf, org.springframework.security.web.header.HeaderWriterFilter@540b2a25, org.springframework.web.filter.CorsFilter@57644fe3, org.springframework.security.web.authentication.logout.LogoutFilter@470c8597, com.tathanhloc.faceattendance.Security.JwtAuthenticationFilter@35df9ea8, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1813935e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@28926a4e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@69cf99e8, org.springframework.security.web.session.SessionManagementFilter@5351d8f3, org.springframework.security.web.access.ExceptionTranslationFilter@44cdc0f0, org.springframework.security.web.access.intercept.AuthorizationFilter@160ab6cf]
+2025-04-29 00:05:30 [restartedMain] WARN  o.s.b.a.t.ThymeleafAutoConfiguration$DefaultTemplateResolverConfiguration - Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2025-04-29 00:05:30 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-04-29 00:05:30 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-04-29 00:05:30 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-04-29 00:05:30 [restartedMain] INFO  c.t.f.FaceAttendanceApplication - Started FaceAttendanceApplication in 3.065 seconds (process running for 1489.582)
+2025-04-29 00:05:30 [restartedMain] DEBUG org.hibernate.SQL - 
+    select
+        tk1_0.id,
+        tk1_0.created_at,
+        tk1_0.ma_gv,
+        tk1_0.is_active,
+        tk1_0.password_hash,
+        tk1_0.ma_sv,
+        tk1_0.username,
+        tk1_0.vai_tro 
+    from
+        taikhoan tk1_0 
+    where
+        tk1_0.username=?
+2025-04-29 00:05:30 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2025-04-29 00:05:59 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 1 deletion, 0 modifications)
+2025-04-29 00:05:59 [Thread-26] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2025-04-29 00:05:59 [Thread-26] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-04-29 00:05:59 [Thread-26] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-9 - Shutdown initiated...
+2025-04-29 00:05:59 [Thread-26] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-9 - Shutdown completed.
+2025-04-29 00:05:59 [restartedMain] INFO  c.t.f.FaceAttendanceApplication - Starting FaceAttendanceApplication using Java 24 with PID 28520 (C:\wamp64\www\face-attendance-system\backend\face-attendance\target\classes started by thanh in C:\wamp64\www\face-attendance-system\backend\face-attendance)
+2025-04-29 00:05:59 [restartedMain] DEBUG c.t.f.FaceAttendanceApplication - Running with Spring Boot v3.2.3, Spring v6.1.4
+2025-04-29 00:05:59 [restartedMain] INFO  c.t.f.FaceAttendanceApplication - No active profile set, falling back to 1 default profile: "default"
+2025-04-29 00:06:00 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-04-29 00:06:00 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 35 ms. Found 18 JPA repository interfaces.
+2025-04-29 00:06:00 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-04-29 00:06:00 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-04-29 00:06:00 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-04-29 00:06:00 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2025-04-29 00:06:00 [restartedMain] INFO  o.a.c.c.C.[Tomcat-3].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-04-29 00:06:00 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 615 ms
+2025-04-29 00:06:00 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-04-29 00:06:00 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-04-29 00:06:00 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-04-29 00:06:00 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-10 - Starting...
+2025-04-29 00:06:00 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-10 - Added connection com.mysql.cj.jdbc.ConnectionImpl@358297e0
+2025-04-29 00:06:00 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-10 - Start completed.
+2025-04-29 00:06:00 [restartedMain] WARN  org.hibernate.dialect.Dialect - HHH000511: The 5.5.0 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
+2025-04-29 00:06:00 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-04-29 00:06:01 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-04-29 00:06:01 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-04-29 00:06:01 [restartedMain] DEBUG c.t.f.S.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
+2025-04-29 00:06:02 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-04-29 00:06:02 [restartedMain] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 3 endpoint(s) beneath base path '/actuator'
+2025-04-29 00:06:02 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@13503ec7, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@216917b5, org.springframework.security.web.context.SecurityContextHolderFilter@34afa7ba, org.springframework.security.web.header.HeaderWriterFilter@7d157076, org.springframework.web.filter.CorsFilter@1c76a17d, org.springframework.security.web.authentication.logout.LogoutFilter@3726245c, com.tathanhloc.faceattendance.Security.JwtAuthenticationFilter@61de1aad, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3cb7e0d9, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@37cf9878, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4e0a9572, org.springframework.security.web.session.SessionManagementFilter@22150741, org.springframework.security.web.access.ExceptionTranslationFilter@43b57219, org.springframework.security.web.access.intercept.AuthorizationFilter@450ef0a8]
+2025-04-29 00:06:02 [restartedMain] WARN  o.s.b.a.t.ThymeleafAutoConfiguration$DefaultTemplateResolverConfiguration - Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2025-04-29 00:06:03 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-04-29 00:06:03 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-04-29 00:06:03 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-04-29 00:06:03 [restartedMain] INFO  c.t.f.FaceAttendanceApplication - Started FaceAttendanceApplication in 3.122 seconds (process running for 1521.868)
+2025-04-29 00:06:03 [restartedMain] DEBUG org.hibernate.SQL - 
+    select
+        tk1_0.id,
+        tk1_0.created_at,
+        tk1_0.ma_gv,
+        tk1_0.is_active,
+        tk1_0.password_hash,
+        tk1_0.ma_sv,
+        tk1_0.username,
+        tk1_0.vai_tro 
+    from
+        taikhoan tk1_0 
+    where
+        tk1_0.username=?
+2025-04-29 00:06:03 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2025-04-29 00:06:21 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 1 deletion, 0 modifications)
+2025-04-29 00:06:21 [Thread-36] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2025-04-29 00:06:21 [Thread-36] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-04-29 00:06:21 [Thread-36] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-10 - Shutdown initiated...
+2025-04-29 00:06:21 [Thread-36] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-10 - Shutdown completed.
+2025-04-29 00:06:22 [restartedMain] INFO  c.t.f.FaceAttendanceApplication - Starting FaceAttendanceApplication using Java 24 with PID 28520 (C:\wamp64\www\face-attendance-system\backend\face-attendance\target\classes started by thanh in C:\wamp64\www\face-attendance-system\backend\face-attendance)
+2025-04-29 00:06:22 [restartedMain] DEBUG c.t.f.FaceAttendanceApplication - Running with Spring Boot v3.2.3, Spring v6.1.4
+2025-04-29 00:06:22 [restartedMain] INFO  c.t.f.FaceAttendanceApplication - No active profile set, falling back to 1 default profile: "default"
+2025-04-29 00:06:22 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-04-29 00:06:22 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 51 ms. Found 18 JPA repository interfaces.
+2025-04-29 00:06:22 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-04-29 00:06:22 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-04-29 00:06:22 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-04-29 00:06:22 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2025-04-29 00:06:22 [restartedMain] INFO  o.a.c.c.C.[Tomcat-3].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-04-29 00:06:22 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 681 ms
+2025-04-29 00:06:22 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-04-29 00:06:22 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-04-29 00:06:22 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-04-29 00:06:22 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-11 - Starting...
+2025-04-29 00:06:22 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-11 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2ec6b66
+2025-04-29 00:06:22 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-11 - Start completed.
+2025-04-29 00:06:22 [restartedMain] WARN  org.hibernate.dialect.Dialect - HHH000511: The 5.5.0 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
+2025-04-29 00:06:22 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-04-29 00:06:23 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-04-29 00:06:23 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-04-29 00:06:23 [restartedMain] DEBUG c.t.f.S.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
+2025-04-29 00:06:23 [restartedMain] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'authController' defined in file [C:\wamp64\www\face-attendance-system\backend\face-attendance\target\classes\com\tathanhloc\faceattendance\Controller\AuthController.class]: Unsatisfied dependency expressed through constructor parameter 0: No qualifying bean of type 'org.springframework.security.authentication.AuthenticationManager' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2025-04-29 00:06:23 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-04-29 00:06:23 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-11 - Shutdown initiated...
+2025-04-29 00:06:23 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-11 - Shutdown completed.
+2025-04-29 00:06:23 [restartedMain] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2025-04-29 00:06:23 [restartedMain] INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-04-29 00:06:23 [restartedMain] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 0 of constructor in com.tathanhloc.faceattendance.Controller.AuthController required a bean of type 'org.springframework.security.authentication.AuthenticationManager' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'org.springframework.security.authentication.AuthenticationManager' in your configuration.
+
+2025-04-29 00:06:24 [restartedMain] INFO  c.t.f.FaceAttendanceApplication - Starting FaceAttendanceApplication using Java 24 with PID 28520 (C:\wamp64\www\face-attendance-system\backend\face-attendance\target\classes started by thanh in C:\wamp64\www\face-attendance-system\backend\face-attendance)
+2025-04-29 00:06:24 [restartedMain] DEBUG c.t.f.FaceAttendanceApplication - Running with Spring Boot v3.2.3, Spring v6.1.4
+2025-04-29 00:06:24 [restartedMain] INFO  c.t.f.FaceAttendanceApplication - No active profile set, falling back to 1 default profile: "default"
+2025-04-29 00:06:25 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-04-29 00:06:25 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 30 ms. Found 18 JPA repository interfaces.
+2025-04-29 00:06:25 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-04-29 00:06:25 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-04-29 00:06:25 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-04-29 00:06:25 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2025-04-29 00:06:25 [restartedMain] INFO  o.a.c.c.C.[Tomcat-4].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-04-29 00:06:25 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 525 ms
+2025-04-29 00:06:25 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-04-29 00:06:25 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-04-29 00:06:25 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-04-29 00:06:25 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-12 - Starting...
+2025-04-29 00:06:25 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-12 - Added connection com.mysql.cj.jdbc.ConnectionImpl@44bad3a7
+2025-04-29 00:06:25 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-12 - Start completed.
+2025-04-29 00:06:25 [restartedMain] WARN  org.hibernate.dialect.Dialect - HHH000511: The 5.5.0 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
+2025-04-29 00:06:25 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-04-29 00:06:25 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-04-29 00:06:25 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-04-29 00:06:26 [restartedMain] DEBUG c.t.f.S.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
+2025-04-29 00:06:26 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-04-29 00:06:27 [restartedMain] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 3 endpoint(s) beneath base path '/actuator'
+2025-04-29 00:06:27 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@43cd8348, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@51144b36, org.springframework.security.web.context.SecurityContextHolderFilter@2312e06c, org.springframework.security.web.header.HeaderWriterFilter@1b9b2bbb, org.springframework.web.filter.CorsFilter@30326e7, org.springframework.security.web.authentication.logout.LogoutFilter@18a1f84f, com.tathanhloc.faceattendance.Security.JwtAuthenticationFilter@1877c2e5, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6fe8635, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7cd98c53, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@14616d56, org.springframework.security.web.session.SessionManagementFilter@49d27265, org.springframework.security.web.access.ExceptionTranslationFilter@2075ad11, org.springframework.security.web.access.intercept.AuthorizationFilter@9936b0c]
+2025-04-29 00:06:27 [restartedMain] WARN  o.s.b.a.t.ThymeleafAutoConfiguration$DefaultTemplateResolverConfiguration - Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2025-04-29 00:06:27 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-04-29 00:06:27 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-04-29 00:06:27 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-04-29 00:06:27 [restartedMain] INFO  c.t.f.FaceAttendanceApplication - Started FaceAttendanceApplication in 2.985 seconds (process running for 1546.673)
+2025-04-29 00:06:27 [restartedMain] DEBUG org.hibernate.SQL - 
+    select
+        tk1_0.id,
+        tk1_0.created_at,
+        tk1_0.ma_gv,
+        tk1_0.is_active,
+        tk1_0.password_hash,
+        tk1_0.ma_sv,
+        tk1_0.username,
+        tk1_0.vai_tro 
+    from
+        taikhoan tk1_0 
+    where
+        tk1_0.username=?
+2025-04-29 00:06:27 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2025-04-29 00:06:51 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 1 deletion, 0 modifications)
+2025-04-29 00:06:51 [Thread-40] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2025-04-29 00:06:51 [Thread-40] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-04-29 00:06:51 [Thread-40] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-12 - Shutdown initiated...
+2025-04-29 00:06:51 [Thread-40] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-12 - Shutdown completed.
+2025-04-29 00:06:52 [restartedMain] INFO  c.t.f.FaceAttendanceApplication - Starting FaceAttendanceApplication using Java 24 with PID 28520 (C:\wamp64\www\face-attendance-system\backend\face-attendance\target\classes started by thanh in C:\wamp64\www\face-attendance-system\backend\face-attendance)
+2025-04-29 00:06:52 [restartedMain] DEBUG c.t.f.FaceAttendanceApplication - Running with Spring Boot v3.2.3, Spring v6.1.4
+2025-04-29 00:06:52 [restartedMain] INFO  c.t.f.FaceAttendanceApplication - No active profile set, falling back to 1 default profile: "default"
+2025-04-29 00:06:52 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-04-29 00:06:52 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 49 ms. Found 18 JPA repository interfaces.
+2025-04-29 00:06:52 [restartedMain] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: java.lang.IllegalStateException: Unable to load cache item
+2025-04-29 00:06:52 [restartedMain] INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-04-29 00:06:52 [restartedMain] ERROR o.s.boot.SpringApplication - Application run failed
+java.lang.IllegalStateException: Unable to load cache item
+	at org.springframework.cglib.core.internal.LoadingCache.createEntry(LoadingCache.java:75)
+	at org.springframework.cglib.core.internal.LoadingCache.get(LoadingCache.java:34)
+	at org.springframework.cglib.core.AbstractClassGenerator$ClassLoaderData.get(AbstractClassGenerator.java:130)
+	at org.springframework.cglib.core.AbstractClassGenerator.create(AbstractClassGenerator.java:317)
+	at org.springframework.cglib.proxy.Enhancer.createHelper(Enhancer.java:562)
+	at org.springframework.cglib.proxy.Enhancer.createClass(Enhancer.java:407)
+	at org.springframework.context.annotation.ConfigurationClassEnhancer.createClass(ConfigurationClassEnhancer.java:138)
+	at org.springframework.context.annotation.ConfigurationClassEnhancer.enhance(ConfigurationClassEnhancer.java:109)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.enhanceConfigurationClasses(ConfigurationClassPostProcessor.java:533)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanFactory(ConfigurationClassPostProcessor.java:310)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:363)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:153)
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:788)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:606)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at com.tathanhloc.faceattendance.FaceAttendanceApplication.main(FaceAttendanceApplication.java:18)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+Caused by: java.lang.NoClassDefFoundError: com/tathanhloc/faceattendance/Security/JwtAuthenticationFilter
+	at java.base/java.lang.Class.getDeclaredConstructors0(Native Method)
+	at java.base/java.lang.Class.privateGetDeclaredConstructors(Class.java:3006)
+	at java.base/java.lang.Class.getDeclaredConstructors(Class.java:2356)
+	at org.springframework.cglib.proxy.Enhancer.generateClass(Enhancer.java:655)
+	at org.springframework.cglib.transform.TransformingClassGenerator.generateClass(TransformingClassGenerator.java:35)
+	at org.springframework.cglib.core.DefaultGeneratorStrategy.generate(DefaultGeneratorStrategy.java:26)
+	at org.springframework.cglib.core.ClassLoaderAwareGeneratorStrategy.generate(ClassLoaderAwareGeneratorStrategy.java:57)
+	at org.springframework.cglib.core.AbstractClassGenerator.generate(AbstractClassGenerator.java:366)
+	at org.springframework.cglib.proxy.Enhancer.generate(Enhancer.java:575)
+	at org.springframework.cglib.core.AbstractClassGenerator$ClassLoaderData.lambda$new$1(AbstractClassGenerator.java:107)
+	at org.springframework.cglib.core.internal.LoadingCache.lambda$createEntry$1(LoadingCache.java:52)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at org.springframework.cglib.core.internal.LoadingCache.createEntry(LoadingCache.java:57)
+	... 23 common frames omitted
+Caused by: java.lang.ClassNotFoundException: com.tathanhloc.faceattendance.Security.JwtAuthenticationFilter
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:580)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:490)
+	at java.base/java.lang.Class.forName0(Native Method)
+	at java.base/java.lang.Class.forName(Class.java:543)
+	at org.springframework.boot.devtools.restart.classloader.RestartClassLoader.loadClass(RestartClassLoader.java:121)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:490)
+	... 36 common frames omitted
+2025-04-29 00:06:54 [restartedMain] INFO  c.t.f.FaceAttendanceApplication - Starting FaceAttendanceApplication using Java 24 with PID 28520 (C:\wamp64\www\face-attendance-system\backend\face-attendance\target\classes started by thanh in C:\wamp64\www\face-attendance-system\backend\face-attendance)
+2025-04-29 00:06:54 [restartedMain] DEBUG c.t.f.FaceAttendanceApplication - Running with Spring Boot v3.2.3, Spring v6.1.4
+2025-04-29 00:06:54 [restartedMain] INFO  c.t.f.FaceAttendanceApplication - No active profile set, falling back to 1 default profile: "default"
+2025-04-29 00:06:54 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-04-29 00:06:55 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 102 ms. Found 18 JPA repository interfaces.
+2025-04-29 00:06:55 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-04-29 00:06:55 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-04-29 00:06:55 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-04-29 00:06:55 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2025-04-29 00:06:55 [restartedMain] INFO  o.a.c.c.C.[Tomcat-4].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-04-29 00:06:55 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1156 ms
+2025-04-29 00:06:55 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-04-29 00:06:55 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-04-29 00:06:55 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-04-29 00:06:55 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-13 - Starting...
+2025-04-29 00:06:55 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-13 - Added connection com.mysql.cj.jdbc.ConnectionImpl@57b2728b
+2025-04-29 00:06:55 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-13 - Start completed.
+2025-04-29 00:06:55 [restartedMain] WARN  org.hibernate.dialect.Dialect - HHH000511: The 5.5.0 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
+2025-04-29 00:06:55 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-04-29 00:06:55 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-04-29 00:06:56 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-04-29 00:06:56 [restartedMain] DEBUG c.t.f.S.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
+2025-04-29 00:06:57 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-04-29 00:06:57 [restartedMain] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 3 endpoint(s) beneath base path '/actuator'
+2025-04-29 00:06:57 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6064336d, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5c11f9f5, org.springframework.security.web.context.SecurityContextHolderFilter@48ef081d, org.springframework.security.web.header.HeaderWriterFilter@7466fb4e, org.springframework.web.filter.CorsFilter@9ee0d86, org.springframework.security.web.authentication.logout.LogoutFilter@3f473410, com.tathanhloc.faceattendance.Security.JwtAuthenticationFilter@659d7a64, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6a890c38, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@61532570, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@58c1b07f, org.springframework.security.web.session.SessionManagementFilter@328bdaa6, org.springframework.security.web.access.ExceptionTranslationFilter@539a2408, org.springframework.security.web.access.intercept.AuthorizationFilter@1275d79b]
+2025-04-29 00:06:57 [restartedMain] WARN  o.s.b.a.t.ThymeleafAutoConfiguration$DefaultTemplateResolverConfiguration - Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2025-04-29 00:06:57 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-04-29 00:06:58 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-04-29 00:06:58 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-04-29 00:06:58 [restartedMain] INFO  c.t.f.FaceAttendanceApplication - Started FaceAttendanceApplication in 3.852 seconds (process running for 1576.859)
+2025-04-29 00:06:58 [restartedMain] DEBUG org.hibernate.SQL - 
+    select
+        tk1_0.id,
+        tk1_0.created_at,
+        tk1_0.ma_gv,
+        tk1_0.is_active,
+        tk1_0.password_hash,
+        tk1_0.ma_sv,
+        tk1_0.username,
+        tk1_0.vai_tro 
+    from
+        taikhoan tk1_0 
+    where
+        tk1_0.username=?
+2025-04-29 00:06:58 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2025-04-29 00:07:24 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat-4].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-04-29 00:07:24 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-04-29 00:07:24 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-04-29 00:07:24 [http-nio-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/index.html
+2025-04-29 00:07:24 [http-nio-8080-exec-1] INFO  c.t.f.S.JwtAuthenticationFilter - Request path: /swagger-ui/index.html
+2025-04-29 00:07:24 [http-nio-8080-exec-1] INFO  c.t.f.S.JwtAuthenticationFilter - Should not filter: true
+2025-04-29 00:07:24 [http-nio-8080-exec-1] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-04-29 00:07:24 [http-nio-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/index.html
+2025-04-29 00:07:24 [http-nio-8080-exec-1] INFO  c.t.f.S.JwtAuthenticationFilter - Request path: /swagger-ui/index.html
+2025-04-29 00:07:24 [http-nio-8080-exec-1] INFO  c.t.f.S.JwtAuthenticationFilter - Should not filter: true
+2025-04-29 00:07:24 [http-nio-8080-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/swagger-ui.css
+2025-04-29 00:07:24 [http-nio-8080-exec-2] INFO  c.t.f.S.JwtAuthenticationFilter - Request path: /swagger-ui/swagger-ui.css
+2025-04-29 00:07:24 [http-nio-8080-exec-2] INFO  c.t.f.S.JwtAuthenticationFilter - Should not filter: true
+2025-04-29 00:07:24 [http-nio-8080-exec-2] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-04-29 00:07:24 [http-nio-8080-exec-2] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/swagger-ui.css
+2025-04-29 00:07:24 [http-nio-8080-exec-2] INFO  c.t.f.S.JwtAuthenticationFilter - Request path: /swagger-ui/swagger-ui.css
+2025-04-29 00:07:24 [http-nio-8080-exec-2] INFO  c.t.f.S.JwtAuthenticationFilter - Should not filter: true
+2025-04-29 00:07:24 [http-nio-8080-exec-5] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/swagger-ui-standalone-preset.js
+2025-04-29 00:07:24 [http-nio-8080-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/swagger-ui-bundle.js
+2025-04-29 00:07:24 [http-nio-8080-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/index.css
+2025-04-29 00:07:24 [http-nio-8080-exec-4] INFO  c.t.f.S.JwtAuthenticationFilter - Request path: /swagger-ui/swagger-ui-bundle.js
+2025-04-29 00:07:24 [http-nio-8080-exec-5] INFO  c.t.f.S.JwtAuthenticationFilter - Request path: /swagger-ui/swagger-ui-standalone-preset.js
+2025-04-29 00:07:24 [http-nio-8080-exec-3] INFO  c.t.f.S.JwtAuthenticationFilter - Request path: /swagger-ui/index.css
+2025-04-29 00:07:24 [http-nio-8080-exec-4] INFO  c.t.f.S.JwtAuthenticationFilter - Should not filter: true
+2025-04-29 00:07:24 [http-nio-8080-exec-3] INFO  c.t.f.S.JwtAuthenticationFilter - Should not filter: true
+2025-04-29 00:07:24 [http-nio-8080-exec-5] INFO  c.t.f.S.JwtAuthenticationFilter - Should not filter: true
+2025-04-29 00:07:24 [http-nio-8080-exec-3] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-04-29 00:07:24 [http-nio-8080-exec-4] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-04-29 00:07:24 [http-nio-8080-exec-5] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-04-29 00:07:24 [http-nio-8080-exec-3] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/index.css
+2025-04-29 00:07:24 [http-nio-8080-exec-4] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/swagger-ui-bundle.js
+2025-04-29 00:07:24 [http-nio-8080-exec-3] INFO  c.t.f.S.JwtAuthenticationFilter - Request path: /swagger-ui/index.css
+2025-04-29 00:07:24 [http-nio-8080-exec-4] INFO  c.t.f.S.JwtAuthenticationFilter - Request path: /swagger-ui/swagger-ui-bundle.js
+2025-04-29 00:07:24 [http-nio-8080-exec-3] INFO  c.t.f.S.JwtAuthenticationFilter - Should not filter: true
+2025-04-29 00:07:24 [http-nio-8080-exec-4] INFO  c.t.f.S.JwtAuthenticationFilter - Should not filter: true
+2025-04-29 00:07:24 [http-nio-8080-exec-5] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/swagger-ui-standalone-preset.js
+2025-04-29 00:07:24 [http-nio-8080-exec-5] INFO  c.t.f.S.JwtAuthenticationFilter - Request path: /swagger-ui/swagger-ui-standalone-preset.js
+2025-04-29 00:07:24 [http-nio-8080-exec-5] INFO  c.t.f.S.JwtAuthenticationFilter - Should not filter: true
+2025-04-29 00:07:24 [http-nio-8080-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/swagger-initializer.js
+2025-04-29 00:07:24 [http-nio-8080-exec-6] INFO  c.t.f.S.JwtAuthenticationFilter - Request path: /swagger-ui/swagger-initializer.js
+2025-04-29 00:07:24 [http-nio-8080-exec-6] INFO  c.t.f.S.JwtAuthenticationFilter - Should not filter: true
+2025-04-29 00:07:24 [http-nio-8080-exec-6] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-04-29 00:07:24 [http-nio-8080-exec-6] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/swagger-initializer.js
+2025-04-29 00:07:24 [http-nio-8080-exec-6] INFO  c.t.f.S.JwtAuthenticationFilter - Request path: /swagger-ui/swagger-initializer.js
+2025-04-29 00:07:24 [http-nio-8080-exec-6] INFO  c.t.f.S.JwtAuthenticationFilter - Should not filter: true
+2025-04-29 00:07:24 [http-nio-8080-exec-7] DEBUG o.s.security.web.FilterChainProxy - Securing GET /v3/api-docs/swagger-config
+2025-04-29 00:07:24 [http-nio-8080-exec-7] INFO  c.t.f.S.JwtAuthenticationFilter - Request path: /v3/api-docs/swagger-config
+2025-04-29 00:07:24 [http-nio-8080-exec-7] INFO  c.t.f.S.JwtAuthenticationFilter - Should not filter: true
+2025-04-29 00:07:24 [http-nio-8080-exec-7] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-04-29 00:07:24 [http-nio-8080-exec-7] DEBUG o.s.security.web.FilterChainProxy - Secured GET /v3/api-docs/swagger-config
+2025-04-29 00:07:24 [http-nio-8080-exec-7] INFO  c.t.f.S.JwtAuthenticationFilter - Request path: /v3/api-docs/swagger-config
+2025-04-29 00:07:24 [http-nio-8080-exec-7] INFO  c.t.f.S.JwtAuthenticationFilter - Should not filter: true
+2025-04-29 00:07:24 [http-nio-8080-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/favicon-32x32.png
+2025-04-29 00:07:24 [http-nio-8080-exec-8] INFO  c.t.f.S.JwtAuthenticationFilter - Request path: /swagger-ui/favicon-32x32.png
+2025-04-29 00:07:24 [http-nio-8080-exec-8] INFO  c.t.f.S.JwtAuthenticationFilter - Should not filter: true
+2025-04-29 00:07:24 [http-nio-8080-exec-8] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-04-29 00:07:24 [http-nio-8080-exec-8] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/favicon-32x32.png
+2025-04-29 00:07:24 [http-nio-8080-exec-8] INFO  c.t.f.S.JwtAuthenticationFilter - Request path: /swagger-ui/favicon-32x32.png
+2025-04-29 00:07:24 [http-nio-8080-exec-8] INFO  c.t.f.S.JwtAuthenticationFilter - Should not filter: true
+2025-04-29 00:07:24 [http-nio-8080-exec-9] DEBUG o.s.security.web.FilterChainProxy - Securing GET /v3/api-docs
+2025-04-29 00:07:24 [http-nio-8080-exec-9] INFO  c.t.f.S.JwtAuthenticationFilter - Request path: /v3/api-docs
+2025-04-29 00:07:24 [http-nio-8080-exec-9] INFO  c.t.f.S.JwtAuthenticationFilter - Should not filter: true
+2025-04-29 00:07:24 [http-nio-8080-exec-9] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-04-29 00:07:24 [http-nio-8080-exec-9] DEBUG o.s.security.web.FilterChainProxy - Secured GET /v3/api-docs
+2025-04-29 00:07:24 [http-nio-8080-exec-9] INFO  c.t.f.S.JwtAuthenticationFilter - Request path: /v3/api-docs
+2025-04-29 00:07:24 [http-nio-8080-exec-9] INFO  c.t.f.S.JwtAuthenticationFilter - Should not filter: true
+2025-04-29 00:07:24 [http-nio-8080-exec-10] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/favicon-32x32.png
+2025-04-29 00:07:24 [http-nio-8080-exec-10] INFO  c.t.f.S.JwtAuthenticationFilter - Request path: /swagger-ui/favicon-32x32.png
+2025-04-29 00:07:24 [http-nio-8080-exec-10] INFO  c.t.f.S.JwtAuthenticationFilter - Should not filter: true
+2025-04-29 00:07:24 [http-nio-8080-exec-10] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-04-29 00:07:24 [http-nio-8080-exec-10] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/favicon-32x32.png
+2025-04-29 00:07:24 [http-nio-8080-exec-10] INFO  c.t.f.S.JwtAuthenticationFilter - Request path: /swagger-ui/favicon-32x32.png
+2025-04-29 00:07:24 [http-nio-8080-exec-10] INFO  c.t.f.S.JwtAuthenticationFilter - Should not filter: true
+2025-04-29 00:07:25 [http-nio-8080-exec-9] INFO  o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 470 ms
+2025-04-29 00:07:29 [http-nio-8080-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/giangvien
+2025-04-29 00:07:29 [http-nio-8080-exec-6] INFO  c.t.f.S.JwtAuthenticationFilter - Request path: /api/giangvien
+2025-04-29 00:07:29 [http-nio-8080-exec-6] INFO  c.t.f.S.JwtAuthenticationFilter - Should not filter: false
+2025-04-29 00:07:29 [http-nio-8080-exec-6] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-04-29 00:07:30 [http-nio-8080-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/giangvien
+2025-04-29 00:07:30 [http-nio-8080-exec-4] INFO  c.t.f.S.JwtAuthenticationFilter - Request path: /api/giangvien
+2025-04-29 00:07:30 [http-nio-8080-exec-4] INFO  c.t.f.S.JwtAuthenticationFilter - Should not filter: false
+2025-04-29 00:07:30 [http-nio-8080-exec-4] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-04-29 00:07:48 [http-nio-8080-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/auth/me
+2025-04-29 00:07:48 [http-nio-8080-exec-8] INFO  c.t.f.S.JwtAuthenticationFilter - Request path: /api/auth/me
+2025-04-29 00:07:48 [http-nio-8080-exec-8] INFO  c.t.f.S.JwtAuthenticationFilter - Should not filter: false
+2025-04-29 00:07:48 [http-nio-8080-exec-8] ERROR c.t.f.Security.JwtTokenProvider - Invalid JWT token
+2025-04-29 00:07:48 [http-nio-8080-exec-8] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-04-29 00:07:49 [http-nio-8080-exec-10] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/auth/me
+2025-04-29 00:07:49 [http-nio-8080-exec-10] INFO  c.t.f.S.JwtAuthenticationFilter - Request path: /api/auth/me
+2025-04-29 00:07:49 [http-nio-8080-exec-10] INFO  c.t.f.S.JwtAuthenticationFilter - Should not filter: false
+2025-04-29 00:07:49 [http-nio-8080-exec-10] ERROR c.t.f.Security.JwtTokenProvider - Invalid JWT token
+2025-04-29 00:07:49 [http-nio-8080-exec-10] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-04-29 00:08:34 [http-nio-8080-exec-5] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/sinhviens/embeddings
+2025-04-29 00:08:34 [http-nio-8080-exec-5] INFO  c.t.f.S.JwtAuthenticationFilter - Request path: /api/sinhviens/embeddings
+2025-04-29 00:08:34 [http-nio-8080-exec-5] INFO  c.t.f.S.JwtAuthenticationFilter - Should not filter: false
+2025-04-29 00:08:34 [http-nio-8080-exec-5] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-04-29 00:08:34 [http-nio-8080-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing GET /favicon.ico
+2025-04-29 00:08:34 [http-nio-8080-exec-3] INFO  c.t.f.S.JwtAuthenticationFilter - Request path: /favicon.ico
+2025-04-29 00:08:34 [http-nio-8080-exec-3] INFO  c.t.f.S.JwtAuthenticationFilter - Should not filter: false
+2025-04-29 00:08:34 [http-nio-8080-exec-3] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-04-29 00:08:34 [http-nio-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/sinhviens/embeddings
+2025-04-29 00:08:34 [http-nio-8080-exec-1] INFO  c.t.f.S.JwtAuthenticationFilter - Request path: /api/sinhviens/embeddings
+2025-04-29 00:08:34 [http-nio-8080-exec-1] INFO  c.t.f.S.JwtAuthenticationFilter - Should not filter: false
+2025-04-29 00:08:34 [http-nio-8080-exec-1] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-04-29 00:08:35 [http-nio-8080-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing GET /favicon.ico
+2025-04-29 00:08:35 [http-nio-8080-exec-2] INFO  c.t.f.S.JwtAuthenticationFilter - Request path: /favicon.ico
+2025-04-29 00:08:35 [http-nio-8080-exec-2] INFO  c.t.f.S.JwtAuthenticationFilter - Should not filter: false
+2025-04-29 00:08:35 [http-nio-8080-exec-2] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-04-29 00:08:35 [http-nio-8080-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/sinhviens/embeddings
+2025-04-29 00:08:35 [http-nio-8080-exec-6] INFO  c.t.f.S.JwtAuthenticationFilter - Request path: /api/sinhviens/embeddings
+2025-04-29 00:08:35 [http-nio-8080-exec-6] INFO  c.t.f.S.JwtAuthenticationFilter - Should not filter: false
+2025-04-29 00:08:35 [http-nio-8080-exec-6] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-04-29 00:08:35 [http-nio-8080-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing GET /favicon.ico
+2025-04-29 00:08:35 [http-nio-8080-exec-4] INFO  c.t.f.S.JwtAuthenticationFilter - Request path: /favicon.ico
+2025-04-29 00:08:35 [http-nio-8080-exec-4] INFO  c.t.f.S.JwtAuthenticationFilter - Should not filter: false
+2025-04-29 00:08:35 [http-nio-8080-exec-4] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-04-29 00:09:41 [http-nio-8080-exec-10] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/sinhviens/embeddings
+2025-04-29 00:09:41 [http-nio-8080-exec-10] INFO  c.t.f.S.JwtAuthenticationFilter - Request path: /api/sinhviens/embeddings
+2025-04-29 00:09:41 [http-nio-8080-exec-10] INFO  c.t.f.S.JwtAuthenticationFilter - Should not filter: false
+2025-04-29 00:09:41 [http-nio-8080-exec-10] ERROR c.t.f.Security.JwtTokenProvider - Invalid JWT token
+2025-04-29 00:09:41 [http-nio-8080-exec-10] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-04-29 00:10:34 [http-nio-8080-exec-5] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/python
+2025-04-29 00:10:34 [http-nio-8080-exec-5] INFO  c.t.f.S.JwtAuthenticationFilter - Request path: /api/python
+2025-04-29 00:10:34 [http-nio-8080-exec-5] INFO  c.t.f.S.JwtAuthenticationFilter - Should not filter: false
+2025-04-29 00:10:34 [http-nio-8080-exec-5] ERROR c.t.f.Security.JwtTokenProvider - Invalid JWT token
+2025-04-29 00:10:34 [http-nio-8080-exec-5] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-04-29 00:10:34 [http-nio-8080-exec-5] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/python
+2025-04-29 00:10:34 [http-nio-8080-exec-5] INFO  c.t.f.S.JwtAuthenticationFilter - Request path: /api/python
+2025-04-29 00:10:34 [http-nio-8080-exec-5] INFO  c.t.f.S.JwtAuthenticationFilter - Should not filter: false
+2025-04-29 00:10:34 [http-nio-8080-exec-5] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource api/python.]
+2025-04-29 00:10:53 [http-nio-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/python/diemdanh
+2025-04-29 00:10:53 [http-nio-8080-exec-1] INFO  c.t.f.S.JwtAuthenticationFilter - Request path: /api/python/diemdanh
+2025-04-29 00:10:53 [http-nio-8080-exec-1] INFO  c.t.f.S.JwtAuthenticationFilter - Should not filter: false
+2025-04-29 00:10:53 [http-nio-8080-exec-1] ERROR c.t.f.Security.JwtTokenProvider - Invalid JWT token
+2025-04-29 00:10:53 [http-nio-8080-exec-1] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-04-29 00:10:53 [http-nio-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/python/diemdanh
+2025-04-29 00:10:53 [http-nio-8080-exec-1] INFO  c.t.f.S.JwtAuthenticationFilter - Request path: /api/python/diemdanh
+2025-04-29 00:10:53 [http-nio-8080-exec-1] INFO  c.t.f.S.JwtAuthenticationFilter - Should not filter: false
+2025-04-29 00:10:53 [http-nio-8080-exec-1] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource api/python/diemdanh.]
+2025-04-29 00:11:49 [http-nio-8080-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/python/diemdanh
+2025-04-29 00:11:49 [http-nio-8080-exec-6] INFO  c.t.f.S.JwtAuthenticationFilter - Request path: /api/python/diemdanh
+2025-04-29 00:11:49 [http-nio-8080-exec-6] INFO  c.t.f.S.JwtAuthenticationFilter - Should not filter: false
+2025-04-29 00:11:49 [http-nio-8080-exec-6] ERROR c.t.f.Security.JwtTokenProvider - Invalid JWT token
+2025-04-29 00:11:49 [http-nio-8080-exec-6] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-04-29 00:11:49 [http-nio-8080-exec-6] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/python/diemdanh
+2025-04-29 00:11:49 [http-nio-8080-exec-6] INFO  c.t.f.S.JwtAuthenticationFilter - Request path: /api/python/diemdanh
+2025-04-29 00:11:49 [http-nio-8080-exec-6] INFO  c.t.f.S.JwtAuthenticationFilter - Should not filter: false
+2025-04-29 00:11:49 [http-nio-8080-exec-6] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource api/python/diemdanh.]
+2025-04-29 00:12:53 [http-nio-8080-exec-7] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/python/diemdanh
+2025-04-29 00:12:53 [http-nio-8080-exec-7] INFO  c.t.f.S.JwtAuthenticationFilter - Request path: /api/python/diemdanh
+2025-04-29 00:12:53 [http-nio-8080-exec-7] INFO  c.t.f.S.JwtAuthenticationFilter - Should not filter: false
+2025-04-29 00:12:53 [http-nio-8080-exec-7] ERROR c.t.f.Security.JwtTokenProvider - Invalid JWT token
+2025-04-29 00:12:53 [http-nio-8080-exec-7] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-04-29 00:12:53 [http-nio-8080-exec-7] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/python/diemdanh
+2025-04-29 00:12:53 [http-nio-8080-exec-7] INFO  c.t.f.S.JwtAuthenticationFilter - Request path: /api/python/diemdanh
+2025-04-29 00:12:53 [http-nio-8080-exec-7] INFO  c.t.f.S.JwtAuthenticationFilter - Should not filter: false
+2025-04-29 00:12:53 [http-nio-8080-exec-7] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource api/python/diemdanh.]
+2025-04-29 00:14:03 [http-nio-8080-exec-10] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/python/diemdanh
+2025-04-29 00:14:03 [http-nio-8080-exec-10] INFO  c.t.f.S.JwtAuthenticationFilter - Request path: /api/python/diemdanh
+2025-04-29 00:14:03 [http-nio-8080-exec-10] INFO  c.t.f.S.JwtAuthenticationFilter - Should not filter: false
+2025-04-29 00:14:03 [http-nio-8080-exec-10] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-04-29 00:14:03 [http-nio-8080-exec-10] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/python/diemdanh
+2025-04-29 00:14:03 [http-nio-8080-exec-10] INFO  c.t.f.S.JwtAuthenticationFilter - Request path: /api/python/diemdanh
+2025-04-29 00:14:03 [http-nio-8080-exec-10] INFO  c.t.f.S.JwtAuthenticationFilter - Should not filter: false
+2025-04-29 00:14:03 [http-nio-8080-exec-10] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource api/python/diemdanh.]
+2025-04-29 00:14:03 [http-nio-8080-exec-9] DEBUG o.s.security.web.FilterChainProxy - Securing GET /favicon.ico
+2025-04-29 00:14:03 [http-nio-8080-exec-9] INFO  c.t.f.S.JwtAuthenticationFilter - Request path: /favicon.ico
+2025-04-29 00:14:03 [http-nio-8080-exec-9] INFO  c.t.f.S.JwtAuthenticationFilter - Should not filter: false
+2025-04-29 00:14:03 [http-nio-8080-exec-9] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-04-29 00:14:10 [http-nio-8080-exec-5] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/python
+2025-04-29 00:14:10 [http-nio-8080-exec-5] INFO  c.t.f.S.JwtAuthenticationFilter - Request path: /api/python
+2025-04-29 00:14:10 [http-nio-8080-exec-5] INFO  c.t.f.S.JwtAuthenticationFilter - Should not filter: false
+2025-04-29 00:14:10 [http-nio-8080-exec-5] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-04-29 00:14:10 [http-nio-8080-exec-5] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/python
+2025-04-29 00:14:10 [http-nio-8080-exec-5] INFO  c.t.f.S.JwtAuthenticationFilter - Request path: /api/python
+2025-04-29 00:14:10 [http-nio-8080-exec-5] INFO  c.t.f.S.JwtAuthenticationFilter - Should not filter: false
+2025-04-29 00:14:10 [http-nio-8080-exec-5] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource api/python.]
+2025-04-29 00:14:10 [http-nio-8080-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing GET /favicon.ico
+2025-04-29 00:14:10 [http-nio-8080-exec-3] INFO  c.t.f.S.JwtAuthenticationFilter - Request path: /favicon.ico
+2025-04-29 00:14:10 [http-nio-8080-exec-3] INFO  c.t.f.S.JwtAuthenticationFilter - Should not filter: false
+2025-04-29 00:14:10 [http-nio-8080-exec-3] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-04-29 00:14:15 [http-nio-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api
+2025-04-29 00:14:15 [http-nio-8080-exec-1] INFO  c.t.f.S.JwtAuthenticationFilter - Request path: /api
+2025-04-29 00:14:15 [http-nio-8080-exec-1] INFO  c.t.f.S.JwtAuthenticationFilter - Should not filter: false
+2025-04-29 00:14:15 [http-nio-8080-exec-1] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-04-29 00:14:16 [http-nio-8080-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing GET /favicon.ico
+2025-04-29 00:14:16 [http-nio-8080-exec-2] INFO  c.t.f.S.JwtAuthenticationFilter - Request path: /favicon.ico
+2025-04-29 00:14:16 [http-nio-8080-exec-2] INFO  c.t.f.S.JwtAuthenticationFilter - Should not filter: false
+2025-04-29 00:14:16 [http-nio-8080-exec-2] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-04-29 00:14:22 [http-nio-8080-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/sinhvien
+2025-04-29 00:14:22 [http-nio-8080-exec-6] INFO  c.t.f.S.JwtAuthenticationFilter - Request path: /api/sinhvien
+2025-04-29 00:14:22 [http-nio-8080-exec-6] INFO  c.t.f.S.JwtAuthenticationFilter - Should not filter: false
+2025-04-29 00:14:22 [http-nio-8080-exec-6] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-04-29 00:14:22 [http-nio-8080-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing GET /favicon.ico
+2025-04-29 00:14:22 [http-nio-8080-exec-4] INFO  c.t.f.S.JwtAuthenticationFilter - Request path: /favicon.ico
+2025-04-29 00:14:22 [http-nio-8080-exec-4] INFO  c.t.f.S.JwtAuthenticationFilter - Should not filter: false
+2025-04-29 00:14:22 [http-nio-8080-exec-4] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-04-29 00:14:30 [http-nio-8080-exec-7] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/python
+2025-04-29 00:14:30 [http-nio-8080-exec-7] INFO  c.t.f.S.JwtAuthenticationFilter - Request path: /api/python
+2025-04-29 00:14:30 [http-nio-8080-exec-7] INFO  c.t.f.S.JwtAuthenticationFilter - Should not filter: false
+2025-04-29 00:14:30 [http-nio-8080-exec-7] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-04-29 00:14:30 [http-nio-8080-exec-7] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/python
+2025-04-29 00:14:30 [http-nio-8080-exec-7] INFO  c.t.f.S.JwtAuthenticationFilter - Request path: /api/python
+2025-04-29 00:14:30 [http-nio-8080-exec-7] INFO  c.t.f.S.JwtAuthenticationFilter - Should not filter: false
+2025-04-29 00:14:30 [http-nio-8080-exec-7] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource api/python.]
+2025-04-29 00:14:30 [http-nio-8080-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing GET /favicon.ico
+2025-04-29 00:14:30 [http-nio-8080-exec-8] INFO  c.t.f.S.JwtAuthenticationFilter - Request path: /favicon.ico
+2025-04-29 00:14:30 [http-nio-8080-exec-8] INFO  c.t.f.S.JwtAuthenticationFilter - Should not filter: false
+2025-04-29 00:14:30 [http-nio-8080-exec-8] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-04-29 01:30:56 [HikariPool-13 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-13 - Thread starvation or clock leap detected (housekeeper delta=51m126ms750µs100ns).
+2025-04-29 06:58:51 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-04-29 06:58:51 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-13 - Shutdown initiated...
+2025-04-29 06:58:51 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-13 - Shutdown completed.

@@ -1,14 +1,18 @@
 package com.tathanhloc.faceattendance.DTO;
 
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
 @Data
-@io.swagger.annotations.ApiModel("")
-public class CameraDTO implements Serializable {
-    private static final long serialVersionUID = 1L;
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class CameraDTO  {
     private Long id;
 
     private String tenCamera;

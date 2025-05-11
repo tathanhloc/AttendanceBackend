@@ -1,5 +1,6 @@
 package com.tathanhloc.faceattendance;
 
+import com.tathanhloc.faceattendance.Enum.VaiTroEnum;
 import com.tathanhloc.faceattendance.Model.TaiKhoan;
 import com.tathanhloc.faceattendance.Repository.TaiKhoanRepository;
 import org.springframework.boot.CommandLineRunner;
@@ -25,7 +26,7 @@ public class FaceAttendanceApplication {
                 TaiKhoan admin = TaiKhoan.builder()
                         .username("admin")
                         .passwordHash(passwordEncoder.encode("admin@123"))
-                        .vaiTro("admin")
+                        .vaiTro(VaiTroEnum.ADMIN)
                         .isActive(true)
                         .createdAt(LocalDateTime.now())
                         .build();

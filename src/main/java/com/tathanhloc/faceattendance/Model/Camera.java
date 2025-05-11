@@ -1,6 +1,5 @@
-package com.tathanhloc.faceattendance;
+package com.tathanhloc.faceattendance.Model;
 
-import com.tathanhloc.faceattendance.Model.PhongHoc;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;

@@ -30,4 +30,7 @@ public class GiangVien {
     @ManyToOne
     @JoinColumn(name = "ma_khoa")
     private Khoa khoa;
+
+    @Column(name = "embedding", columnDefinition = "TEXT")
+    private String embedding;
 }

@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/giangvien")
@@ -44,6 +45,27 @@ public class GiangVienController {
     @GetMapping("/by-magv/{maGv}")
     public ResponseEntity<GiangVienDTO> getByMaGv(@PathVariable String maGv) {
         return ResponseEntity.ok(giangVienService.getByMaGv(maGv));
+    }
+
+    @GetMapping("/embeddings")
+    public ResponseEntity<List<Map<String, Object>>> getAllEmbeddings() {
+        return ResponseEntity.ok(giangVienService.getAllEmbeddings());
+    }
+
+    @GetMapping("/teachers/{maGv}/embedding")
+    public ResponseEntity<Map<String, Object>> getEmbeddingByMaGv(@PathVariable String maGv) {
+        return ResponseEntity.ok(giangVienService.getEmbeddingByMaGv(maGv));
+    }
+
+    @PostMapping("/teachers/{maGv}/embedding")
+    public ResponseEntity<GiangVienDTO> saveEmbedding(
+            @PathVariable String maGv,
+            @RequestBody Map<String, String> requestBody) {
+        String embedding = requestBody.get("embedding");
+        if (embedding == null || embedding.isEmpty()) {
+            throw new RuntimeException("Embedding không được để trống");
+        }
+        return ResponseEntity.ok(giangVienService.saveEmbedding(maGv, embedding));
     }
 
 }

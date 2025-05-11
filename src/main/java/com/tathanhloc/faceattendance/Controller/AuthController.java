@@ -1,50 +1,62 @@
 package com.tathanhloc.faceattendance.Controller;
 
+import com.tathanhloc.faceattendance.DTO.JwtAuthResponse;
 import com.tathanhloc.faceattendance.DTO.TaiKhoanDTO;
 import com.tathanhloc.faceattendance.DTO.UserProfileDTO;
 import com.tathanhloc.faceattendance.Model.LoginRequest;
 import com.tathanhloc.faceattendance.Model.TaiKhoan;
 import com.tathanhloc.faceattendance.Security.CustomUserDetails;
+import com.tathanhloc.faceattendance.Security.JwtTokenProvider;
 import com.tathanhloc.faceattendance.Service.TaiKhoanService;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.*;
 import org.springframework.security.authentication.*;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
-@CrossOrigin(origins = "http://localhost:5173", allowCredentials = "true")
 @RestController
 @RequestMapping("/api/auth")
 @RequiredArgsConstructor
+@Slf4j
 public class AuthController {
 
     private final AuthenticationManager authenticationManager;
     private final TaiKhoanService taiKhoanService;
     private final PasswordEncoder passwordEncoder;
+    private final JwtTokenProvider tokenProvider;
 
-    // ✅ Đăng nhập (xử lý login bằng API - AJAX)
     @PostMapping("/login")
-    public ResponseEntity<TaiKhoanDTO> login(@RequestBody LoginRequest request) {
+    public ResponseEntity<JwtAuthResponse> login(@Valid @RequestBody LoginRequest request) {
+        log.info("Đăng nhập với username: {}", request.getUsername());
+
         Authentication auth = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword())
         );
 
         SecurityContextHolder.getContext().setAuthentication(auth);
+        String jwt = tokenProvider.generateToken(auth);
 
         TaiKhoan user = ((CustomUserDetails) auth.getPrincipal()).getTaiKhoan();
+        TaiKhoanDTO userDTO = taiKhoanService.convertToDTO(user);
 
-        return ResponseEntity.ok(toDTO(user));
+        return ResponseEntity.ok(new JwtAuthResponse(jwt, userDTO));
     }
 
-
-    // ✅ Thông tin tài khoản hiện tại
     @GetMapping("/me")
-    public UserProfileDTO me(@AuthenticationPrincipal CustomUserDetails userDetails) {
+    public ResponseEntity<UserProfileDTO> me(@AuthenticationPrincipal CustomUserDetails userDetails) {
+        if (userDetails == null) {
+            log.warn("Người dùng chưa được xác thực");
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                    .body(null);
+        }
+
+        log.info("Lấy thông tin người dùng hiện tại: {}", userDetails.getUsername());
+
         TaiKhoan tk = userDetails.getTaiKhoan();
 
         String hoTen = null;
@@ -61,33 +73,32 @@ public class AuthController {
             email = tk.getGiangVien().getEmail();
         }
 
-        return UserProfileDTO.builder()
+        return ResponseEntity.ok(UserProfileDTO.builder()
                 .id(tk.getId())
                 .username(tk.getUsername())
-                .vaiTro(tk.getVaiTro())
+                .vaiTro(tk.getVaiTro().getValue())
                 .isActive(tk.getIsActive())
                 .hoTen(hoTen)
                 .maSo(maSo)
                 .email(email)
-                .build();
+                .build());
     }
 
-
-    // 🔁 Quên mật khẩu
     @PostMapping("/forgot-password")
     public ResponseEntity<String> forgotPassword(@RequestParam String username) {
-        taiKhoanService.resetPassword(username); // gửi mail/tạo mật khẩu mới
+        log.info("Yêu cầu đặt lại mật khẩu cho username: {}", username);
+        taiKhoanService.resetPassword(username);
         return ResponseEntity.ok("Mật khẩu mới đã được tạo và gửi đến email (nếu có)");
     }
 
-    // 🔒 Đổi mật khẩu
     @PutMapping("/change-password")
     public ResponseEntity<?> changePassword(
             @AuthenticationPrincipal CustomUserDetails userDetails,
             @RequestParam String oldPassword,
             @RequestParam String newPassword) {
 
-        // So sánh mật khẩu cũ với hiện tại
+        log.info("Đổi mật khẩu cho người dùng: {}", userDetails.getUsername());
+
         if (!passwordEncoder.matches(oldPassword, userDetails.getPassword())) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
                     .body("❌ Mật khẩu cũ không đúng");
@@ -109,33 +120,11 @@ public class AuthController {
         return ResponseEntity.ok(UserProfileDTO.builder()
                 .id(updated.getId())
                 .username(updated.getUsername())
-                .vaiTro(updated.getVaiTro())
+                .vaiTro(updated.getVaiTro().getValue())
                 .isActive(updated.getIsActive())
                 .hoTen(hoTen)
                 .maSo(maSo)
                 .email(email)
                 .build());
-    }
-
-
-    // 🚪 Đăng xuất (nếu xài session)
-    @PostMapping("/logout")
-    public ResponseEntity<String> logout(HttpServletRequest request, HttpServletResponse response) {
-        request.getSession().invalidate();
-        SecurityContextHolder.clearContext();
-        return ResponseEntity.ok("Đăng xuất thành công");
-    }
-
-    // ✅ Helper
-    private TaiKhoanDTO toDTO(TaiKhoan tk) {
-        return TaiKhoanDTO.builder()
-                .id(tk.getId())
-                .username(tk.getUsername())
-                .vaiTro(tk.getVaiTro())
-                .isActive(tk.getIsActive())
-                .createdAt(tk.getCreatedAt())
-                .maSv(tk.getSinhVien() != null ? tk.getSinhVien().getMaSv() : null)
-                .maGv(tk.getGiangVien() != null ? tk.getGiangVien().getMaGv() : null)
-                .build();
     }
 }

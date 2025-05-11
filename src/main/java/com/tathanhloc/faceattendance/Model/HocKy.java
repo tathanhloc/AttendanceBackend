@@ -22,5 +22,6 @@ public class HocKy {
     private String tenHocKy;
 
     @Column(name = "is_active")
+    @Builder.Default
     private Boolean isActive = true;
 }

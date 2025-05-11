@@ -9,7 +9,9 @@ import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 @Service
@@ -73,6 +75,7 @@ public class GiangVienService {
                 .email(gv.getEmail())
                 .isActive(gv.getIsActive())
                 .maKhoa(gv.getKhoa().getMaKhoa())
+                .embedding(gv.getEmbedding())
                 .build();
     }
 
@@ -86,6 +89,7 @@ public class GiangVienService {
                 .email(dto.getEmail())
                 .isActive(dto.getIsActive())
                 .khoa(khoa)
+                .embedding(dto.getEmbedding())
                 .build();
     }
 
@@ -95,4 +99,45 @@ public class GiangVienService {
         return toDTO(gv);
     }
 
+    @Transactional
+    public GiangVienDTO saveEmbedding(String maGv, String embedding) {
+        GiangVien giangVien = giangVienRepository.findById(maGv)
+                .orElseThrow(() -> new RuntimeException("Không tìm thấy giảng viên với mã: " + maGv));
+
+        giangVien.setEmbedding(embedding);
+        giangVienRepository.save(giangVien);
+
+        return toDTO(giangVien);
+    }
+
+    // Add a method to get embedding for a teacher
+    public Map<String, Object> getEmbeddingByMaGv(String maGv) {
+        GiangVien giangVien = giangVienRepository.findById(maGv)
+                .orElseThrow(() -> new RuntimeException("Không tìm thấy giảng viên với mã: " + maGv));
+
+        if (giangVien.getEmbedding() == null || giangVien.getEmbedding().isEmpty()) {
+            throw new RuntimeException("Giảng viên chưa có dữ liệu embedding");
+        }
+
+        Map<String, Object> result = new HashMap<>();
+        result.put("teacherId", giangVien.getMaGv());
+        result.put("name", giangVien.getHoTen());
+        result.put("embedding", giangVien.getEmbedding());
+        return result;
+    }
+
+    // Add a method to get all teacher embeddings
+    public List<Map<String, Object>> getAllEmbeddings() {
+        return giangVienRepository.findAll().stream()
+                .filter(gv -> gv.getIsActive() != null && gv.getIsActive())
+                .filter(gv -> gv.getEmbedding() != null && !gv.getEmbedding().isEmpty())
+                .map(gv -> {
+                    Map<String, Object> result = new HashMap<>();
+                    result.put("teacherId", gv.getMaGv());
+                    result.put("name", gv.getHoTen());
+                    result.put("embedding", gv.getEmbedding());
+                    return result;
+                })
+                .collect(Collectors.toList());
+    }
 }

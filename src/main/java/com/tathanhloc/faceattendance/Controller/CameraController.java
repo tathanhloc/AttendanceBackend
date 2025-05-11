@@ -2,52 +2,45 @@ package com.tathanhloc.faceattendance.Controller;
 
 import com.tathanhloc.faceattendance.DTO.CameraDTO;
 import com.tathanhloc.faceattendance.Service.CameraService;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import jakarta.persistence.NotNull;
-import jakarta.persistence.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-@Api(tags = "")
-@Validated
+import java.util.List;
+
 @RestController
-@RequestMapping("/camera")
+@RequestMapping("/api/cameras")
+@CrossOrigin(origins = "*")
 public class CameraController {
 
     @Autowired
     private CameraService cameraService;
 
-    @PostMapping
-    @ApiOperation("Save ")
-    public String save(@Valid @RequestBody CameraVO vO) {
-        return cameraService.save(vO).toString();
-    }
-
-    @DeleteMapping("/{id}")
-    @ApiOperation("Delete ")
-    public void delete(@Valid @NotNull @PathVariable("id") Long id) {
-        cameraService.delete(id);
-    }
-
-    @PutMapping("/{id}")
-    @ApiOperation("Update ")
-    public void update(@Valid @NotNull @PathVariable("id") Long id,
-                       @Valid @RequestBody CameraUpdateVO vO) {
-        cameraService.update(id, vO);
+    @GetMapping
+    public List<CameraDTO> getAll() {
+        return cameraService.getAll();
     }
 
     @GetMapping("/{id}")
-    @ApiOperation("Retrieve by ID ")
-    public CameraDTO getById(@Valid @NotNull @PathVariable("id") Long id) {
+    public CameraDTO getById(@PathVariable Long id) {
         return cameraService.getById(id);
     }
 
-    @GetMapping
-    @ApiOperation("Retrieve by query ")
-    public Page<CameraDTO> query(@Valid CameraQueryVO vO) {
-        return cameraService.query(vO);
+    @PostMapping
+    public CameraDTO create(@RequestBody CameraDTO dto) {
+        return cameraService.create(dto);
+    }
+
+    @PutMapping("/{id}")
+    public CameraDTO update(@PathVariable Long id, @RequestBody CameraDTO dto) {
+        return cameraService.update(id, dto);
+    }
+
+    @DeleteMapping("/{id}")
+    public String delete(@PathVariable Long id) {
+        boolean deleted = cameraService.delete(id);
+        return deleted ? "Deleted successfully." : "Camera not found.";
     }
 }
