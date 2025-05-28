@@ -11,4 +11,5 @@ public interface LopRepository extends JpaRepository<Lop, String> {
     List<Lop> findByKhoaHocMaKhoahoc(String maKhoahoc);
 
     Collection<Object> findByMaLop(String maLop);
+
 }

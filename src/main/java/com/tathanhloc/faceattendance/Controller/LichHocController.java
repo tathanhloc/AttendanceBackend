@@ -24,7 +24,6 @@ public class LichHocController {
     public LichHocDTO getById(@PathVariable String id) {
         return lichHocService.getById(id);
     }
-
     @PostMapping
     public LichHocDTO create(@RequestBody LichHocDTO dto) {
         return lichHocService.create(dto);

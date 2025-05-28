@@ -27,4 +27,3 @@ public class Khoa {
     @Column(name = "is_active")
     private Boolean isActive;
 }
-

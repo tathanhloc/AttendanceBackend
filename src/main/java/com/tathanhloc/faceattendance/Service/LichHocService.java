@@ -1,6 +1,7 @@
 package com.tathanhloc.faceattendance.Service;
 
 import com.tathanhloc.faceattendance.DTO.LichHocDTO;
+import com.tathanhloc.faceattendance.Exception.ResourceNotFoundException;
 import com.tathanhloc.faceattendance.Model.LichHoc;
 import com.tathanhloc.faceattendance.Repository.LichHocRepository;
 import com.tathanhloc.faceattendance.Repository.LopHocPhanRepository;
@@ -23,11 +24,11 @@ public class LichHocService {
     public List<LichHocDTO> getAll() {
         return lichHocRepository.findAll().stream().map(this::toDTO).toList();
     }
-
     public LichHocDTO getById(String id) {
-        return toDTO(lichHocRepository.findById(id).orElseThrow());
+        return lichHocRepository.findById(id)
+                .map(this::toDTO)
+                .orElseThrow(() -> new ResourceNotFoundException("LichHoc not found with id: " + id));
     }
-
     public LichHocDTO create(LichHocDTO dto) {
         LichHoc lh = toEntity(dto);
         return toDTO(lichHocRepository.save(lh));
@@ -69,5 +70,5 @@ public class LichHocService {
                 .isActive(true)
                 .build();
     }
-}
 
+}

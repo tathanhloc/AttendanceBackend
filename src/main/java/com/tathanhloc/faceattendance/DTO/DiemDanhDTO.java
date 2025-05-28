@@ -1,5 +1,6 @@
 package com.tathanhloc.faceattendance.DTO;
 
+import com.tathanhloc.faceattendance.Enum.TrangThaiDiemDanhEnum;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -13,7 +14,7 @@ import java.time.*;
 public class DiemDanhDTO {
     private Long id;
     private LocalDate ngayDiemDanh;
-    private String trangThai;
+    private TrangThaiDiemDanhEnum trangThai;
     private LocalTime thoiGianVao;
     private LocalTime thoiGianRa;
     private String maLich;

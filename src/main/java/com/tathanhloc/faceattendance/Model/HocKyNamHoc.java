@@ -24,5 +24,6 @@ public class HocKyNamHoc {
     private NamHoc namHoc;
 
     @Column(name = "is_active")
+    @Builder.Default
     private Boolean isActive = true;
 }

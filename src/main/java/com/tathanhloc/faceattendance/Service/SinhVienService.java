@@ -1,30 +1,37 @@
 package com.tathanhloc.faceattendance.Service;
 
-
 import com.tathanhloc.faceattendance.DTO.*;
 import com.tathanhloc.faceattendance.Model.*;
 import com.tathanhloc.faceattendance.Repository.*;
-import com.tathanhloc.faceattendance.Util.AutoLogUtil;
-import jakarta.servlet.http.HttpServletRequest;
+import org.springframework.data.jpa.repository.JpaRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
-import java.util.*;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
-public class SinhVienService {
+public class SinhVienService extends BaseService<SinhVien, String, SinhVienDTO> {
 
     private final SinhVienRepository sinhVienRepository;
     private final LopRepository lopRepository;
 
-    public List<SinhVienDTO> getAll() {
-        return sinhVienRepository.findAll().stream().map(this::toDTO).toList();
+    @Override
+    protected JpaRepository<SinhVien, String> getRepository() {
+        return sinhVienRepository;
     }
 
-    public SinhVienDTO getById(String id) {
-        return toDTO(sinhVienRepository.findById(id).orElseThrow());
+    @Override
+    protected void setActive(SinhVien entity, boolean active) {
+        entity.setIsActive(active);
+    }
+
+    @Override
+    protected boolean isActive(SinhVien entity) {
+        return entity.getIsActive() != null && entity.getIsActive();
     }
 
     public SinhVienDTO create(SinhVienDTO dto) {
@@ -33,7 +40,9 @@ public class SinhVienService {
     }
 
     public SinhVienDTO update(String id, SinhVienDTO dto) {
-        SinhVien sv = sinhVienRepository.findById(id).orElseThrow();
+        SinhVien sv = sinhVienRepository.findById(id).orElseThrow(() ->
+                new RuntimeException("Không tìm thấy sinh viên với mã: " + id));
+
         sv.setHoTen(dto.getHoTen());
         sv.setGioiTinh(dto.getGioiTinh());
         sv.setNgaySinh(dto.getNgaySinh());
@@ -41,15 +50,14 @@ public class SinhVienService {
         sv.setHinhAnh(dto.getHinhAnh());
         sv.setEmbedding(dto.getEmbedding());
         sv.setIsActive(dto.getIsActive());
-        sv.setLop(lopRepository.findById(dto.getMaLop()).orElseThrow());
+        sv.setLop(lopRepository.findById(dto.getMaLop()).orElseThrow(() ->
+                new RuntimeException("Không tìm thấy lớp với mã: " + dto.getMaLop())));
+
         return toDTO(sinhVienRepository.save(sv));
     }
 
-    public void delete(String id) {
-        sinhVienRepository.deleteById(id);
-    }
-
-    private SinhVienDTO toDTO(SinhVien sv) {
+    @Override
+    protected SinhVienDTO toDTO(SinhVien sv) {
         return SinhVienDTO.builder()
                 .maSv(sv.getMaSv())
                 .hoTen(sv.getHoTen())
@@ -63,7 +71,8 @@ public class SinhVienService {
                 .build();
     }
 
-    private SinhVien toEntity(SinhVienDTO dto) {
+    @Override
+    protected SinhVien toEntity(SinhVienDTO dto) {
         return SinhVien.builder()
                 .maSv(dto.getMaSv())
                 .hoTen(dto.getHoTen())
@@ -73,13 +82,79 @@ public class SinhVienService {
                 .hinhAnh(dto.getHinhAnh())
                 .embedding(dto.getEmbedding())
                 .isActive(dto.getIsActive())
-                .lop(lopRepository.findById(dto.getMaLop()).orElseThrow())
+                .lop(lopRepository.findById(dto.getMaLop()).orElseThrow(() ->
+                        new RuntimeException("Không tìm thấy lớp với mã: " + dto.getMaLop())))
                 .build();
     }
 
-    //getByMaSv
     public SinhVienDTO getByMaSv(String maSv) {
-        SinhVien sinhVien = sinhVienRepository.findById(maSv).orElseThrow();
+        SinhVien sinhVien = sinhVienRepository.findById(maSv)
+                .orElseThrow(() -> new RuntimeException("Không tìm thấy sinh viên với mã: " + maSv));
         return toDTO(sinhVien);
     }
+
+    // Chỉ lấy sinh viên đang hoạt động
+    public List<SinhVienDTO> getAllActive() {
+        return sinhVienRepository.findAll().stream()
+                .filter(sv -> sv.getIsActive() != null && sv.getIsActive())
+                .map(this::toDTO)
+                .toList();
+    }
+
+    /**
+     * Lấy tất cả embedding của sinh viên đang hoạt động
+     * @return Danh sách embedding của sinh viên
+     */
+    public List<Map<String, Object>> getAllEmbeddings() {
+        return sinhVienRepository.findAll().stream()
+                .filter(sv -> sv.getIsActive() != null && sv.getIsActive())
+                .filter(sv -> sv.getEmbedding() != null && !sv.getEmbedding().isEmpty())
+                .map(sv -> {
+                    Map<String, Object> result = new HashMap<>();
+                    result.put("studentId", sv.getMaSv());
+                    result.put("name", sv.getHoTen());
+                    result.put("embedding", sv.getEmbedding());
+                    return result;
+                })
+                .collect(Collectors.toList());
+    }
+
+    /**
+     * Lấy embedding của một sinh viên theo mã sinh viên
+     * @param maSv Mã sinh viên
+     * @return Embedding của sinh viên
+     */
+    public Map<String, Object> getEmbeddingByMaSv(String maSv) {
+        SinhVien sinhVien = sinhVienRepository.findById(maSv)
+                .orElseThrow(() -> new RuntimeException("Không tìm thấy sinh viên với mã: " + maSv));
+
+        if (sinhVien.getEmbedding() == null || sinhVien.getEmbedding().isEmpty()) {
+            throw new RuntimeException("Sinh viên chưa có dữ liệu embedding");
+        }
+
+        Map<String, Object> result = new HashMap<>();
+        result.put("studentId", sinhVien.getMaSv());
+        result.put("name", sinhVien.getHoTen());
+        result.put("embedding", sinhVien.getEmbedding());
+        return result;
+    }
+
+    /**
+     * Lưu embedding cho một sinh viên
+     * @param maSv Mã sinh viên
+     * @param embedding Dữ liệu embedding
+     * @return SinhVienDTO đã cập nhật
+     */
+    public SinhVienDTO saveEmbedding(String maSv, String embedding) {
+        SinhVien sinhVien = sinhVienRepository.findById(maSv)
+                .orElseThrow(() -> new RuntimeException("Không tìm thấy sinh viên với mã: " + maSv));
+
+        sinhVien.setEmbedding(embedding);
+        sinhVienRepository.save(sinhVien);
+
+        return toDTO(sinhVien);
+    }
+
+
+
 }

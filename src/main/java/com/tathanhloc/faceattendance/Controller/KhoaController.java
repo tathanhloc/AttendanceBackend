@@ -36,7 +36,7 @@ public class KhoaController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable String id) {
-        khoaService.delete(id);
+        khoaService.softDelete(id);
         return ResponseEntity.noContent().build();
     }
     @GetMapping("/by-makhoa/{maKhoa}")

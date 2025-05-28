@@ -18,4 +18,3 @@ public class MonHocDTO {
     private Boolean isActive;
     private Set<String> maNganhs;
 }
-

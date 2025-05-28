@@ -36,4 +36,3 @@ public class Lop {
     @Column(name = "is_active")
     private boolean isActive;
 }
-

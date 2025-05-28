@@ -45,4 +45,10 @@ public class LopController {
         return ResponseEntity.ok(lopService.getByMaLop(maLop));
     }
 
+    @GetMapping("/count")
+    public ResponseEntity<Long> count() {
+        long count = lopService.count();
+        return ResponseEntity.ok(count);
+    }
+
 }

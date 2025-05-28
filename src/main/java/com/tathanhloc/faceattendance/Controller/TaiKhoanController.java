@@ -37,7 +37,7 @@ public class TaiKhoanController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id) {
-        taiKhoanService.delete(id);
+        taiKhoanService.softDelete(id);
         return ResponseEntity.noContent().build();
     }
 

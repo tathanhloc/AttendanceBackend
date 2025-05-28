@@ -1,50 +1,112 @@
 package com.tathanhloc.faceattendance.Controller;
 
+import com.tathanhloc.faceattendance.DTO.JwtAuthResponse;
 import com.tathanhloc.faceattendance.DTO.TaiKhoanDTO;
+import com.tathanhloc.faceattendance.DTO.TokenRefreshRequest;
+import com.tathanhloc.faceattendance.DTO.TokenRefreshResponse;
 import com.tathanhloc.faceattendance.DTO.UserProfileDTO;
+import com.tathanhloc.faceattendance.Exception.TokenRefreshException;
 import com.tathanhloc.faceattendance.Model.LoginRequest;
+import com.tathanhloc.faceattendance.Model.RefreshToken;
 import com.tathanhloc.faceattendance.Model.TaiKhoan;
 import com.tathanhloc.faceattendance.Security.CustomUserDetails;
+import com.tathanhloc.faceattendance.Security.JwtTokenProvider;
+import com.tathanhloc.faceattendance.Service.RefreshTokenService;
 import com.tathanhloc.faceattendance.Service.TaiKhoanService;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.*;
 import org.springframework.security.authentication.*;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
-@CrossOrigin(origins = "http://localhost:5173", allowCredentials = "true")
 @RestController
 @RequestMapping("/api/auth")
 @RequiredArgsConstructor
+@Slf4j
+@CrossOrigin(origins = "*", maxAge = 3600)
 public class AuthController {
 
     private final AuthenticationManager authenticationManager;
     private final TaiKhoanService taiKhoanService;
     private final PasswordEncoder passwordEncoder;
+    private final JwtTokenProvider tokenProvider;
+    private final RefreshTokenService refreshTokenService;
 
-    // ✅ Đăng nhập (xử lý login bằng API - AJAX)
     @PostMapping("/login")
-    public ResponseEntity<TaiKhoanDTO> login(@RequestBody LoginRequest request) {
-        Authentication auth = authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword())
-        );
+    public ResponseEntity<?> login(@Valid @RequestBody LoginRequest request) {
+        log.info("Đăng nhập với username: {}", request.getUsername());
 
-        SecurityContextHolder.getContext().setAuthentication(auth);
+        try {
+            Authentication auth = authenticationManager.authenticate(
+                    new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword())
+            );
 
-        TaiKhoan user = ((CustomUserDetails) auth.getPrincipal()).getTaiKhoan();
+            SecurityContextHolder.getContext().setAuthentication(auth);
 
-        return ResponseEntity.ok(toDTO(user));
+            CustomUserDetails userDetails = (CustomUserDetails) auth.getPrincipal();
+            TaiKhoan user = userDetails.getTaiKhoan();
+            String jwt = tokenProvider.generateToken(auth);
+
+            RefreshToken refreshToken = refreshTokenService.createRefreshToken(user.getId());
+
+            TaiKhoanDTO userDTO = taiKhoanService.convertToDTO(user);
+
+            return ResponseEntity.ok(new JwtAuthResponse(jwt, refreshToken.getToken(), userDTO));
+        } catch (BadCredentialsException e) {
+            log.error("Đăng nhập thất bại: Thông tin đăng nhập không chính xác", e);
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                    .body("Tên đăng nhập hoặc mật khẩu không chính xác");
+        } catch (DisabledException e) {
+            log.error("Đăng nhập thất bại: Tài khoản bị vô hiệu hóa", e);
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                    .body("Tài khoản đã bị vô hiệu hóa");
+        } catch (LockedException e) {
+            log.error("Đăng nhập thất bại: Tài khoản bị khóa", e);
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                    .body("Tài khoản đã bị khóa");
+        } catch (Exception e) {
+            log.error("Đăng nhập thất bại: Lỗi không xác định", e);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Đã xảy ra lỗi trong quá trình xác thực");
+        }
     }
 
+    @PostMapping("/refresh-token")
+    public ResponseEntity<?> refreshToken(@Valid @RequestBody TokenRefreshRequest request) {
+        String requestRefreshToken = request.getRefreshToken();
 
-    // ✅ Thông tin tài khoản hiện tại
+        return refreshTokenService.findByToken(requestRefreshToken)
+                .map(refreshTokenService::verifyExpiration)
+                .map(RefreshToken::getTaiKhoan)
+                .map(user -> {
+                    String token = tokenProvider.generateTokenFromUsername(user.getUsername());
+                    return ResponseEntity.ok(new TokenRefreshResponse(token, requestRefreshToken, "Bearer"));
+                })
+                .orElseThrow(() -> new TokenRefreshException(requestRefreshToken,
+                        "Refresh token không tồn tại trong hệ thống!"));
+    }
+
+    @PostMapping("/logout")
+    public ResponseEntity<?> logoutUser(@RequestParam Long userId) {
+        refreshTokenService.deleteByUserId(userId);
+        return ResponseEntity.ok("Đăng xuất thành công!");
+    }
+
     @GetMapping("/me")
-    public UserProfileDTO me(@AuthenticationPrincipal CustomUserDetails userDetails) {
+    public ResponseEntity<?> me(@AuthenticationPrincipal CustomUserDetails userDetails) {
+        if (userDetails == null) {
+            log.warn("Không có người dùng đăng nhập");
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                    .body("Không có người dùng đăng nhập");
+        }
+
+        log.info("Lấy thông tin người dùng hiện tại: {}", userDetails.getUsername());
+
         TaiKhoan tk = userDetails.getTaiKhoan();
 
         String hoTen = null;
@@ -61,33 +123,38 @@ public class AuthController {
             email = tk.getGiangVien().getEmail();
         }
 
-        return UserProfileDTO.builder()
+        return ResponseEntity.ok(UserProfileDTO.builder()
                 .id(tk.getId())
                 .username(tk.getUsername())
-                .vaiTro(tk.getVaiTro())
+                .vaiTro(tk.getVaiTro().getValue())
                 .isActive(tk.getIsActive())
                 .hoTen(hoTen)
                 .maSo(maSo)
                 .email(email)
-                .build();
+                .build());
     }
 
-
-    // 🔁 Quên mật khẩu
     @PostMapping("/forgot-password")
     public ResponseEntity<String> forgotPassword(@RequestParam String username) {
-        taiKhoanService.resetPassword(username); // gửi mail/tạo mật khẩu mới
+        log.info("Yêu cầu đặt lại mật khẩu cho username: {}", username);
+        taiKhoanService.resetPassword(username);
         return ResponseEntity.ok("Mật khẩu mới đã được tạo và gửi đến email (nếu có)");
     }
 
-    // 🔒 Đổi mật khẩu
     @PutMapping("/change-password")
     public ResponseEntity<?> changePassword(
             @AuthenticationPrincipal CustomUserDetails userDetails,
             @RequestParam String oldPassword,
             @RequestParam String newPassword) {
 
-        // So sánh mật khẩu cũ với hiện tại
+        if (userDetails == null) {
+            log.warn("Không có người dùng đăng nhập");
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                    .body("Không có người dùng đăng nhập");
+        }
+
+        log.info("Đổi mật khẩu cho người dùng: {}", userDetails.getUsername());
+
         if (!passwordEncoder.matches(oldPassword, userDetails.getPassword())) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
                     .body("❌ Mật khẩu cũ không đúng");
@@ -109,7 +176,7 @@ public class AuthController {
         return ResponseEntity.ok(UserProfileDTO.builder()
                 .id(updated.getId())
                 .username(updated.getUsername())
-                .vaiTro(updated.getVaiTro())
+                .vaiTro(updated.getVaiTro().getValue())
                 .isActive(updated.getIsActive())
                 .hoTen(hoTen)
                 .maSo(maSo)
@@ -117,25 +184,25 @@ public class AuthController {
                 .build());
     }
 
+    @PostMapping("/validate-token")
+    public ResponseEntity<?> validateToken(@RequestHeader("Authorization") String authHeader) {
+        try {
+            if (authHeader == null || !authHeader.startsWith("Bearer ")) {
+                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Token không hợp lệ");
+            }
 
-    // 🚪 Đăng xuất (nếu xài session)
-    @PostMapping("/logout")
-    public ResponseEntity<String> logout(HttpServletRequest request, HttpServletResponse response) {
-        request.getSession().invalidate();
-        SecurityContextHolder.clearContext();
-        return ResponseEntity.ok("Đăng xuất thành công");
-    }
+            String token = authHeader.substring(7);
+            boolean isValid = tokenProvider.validateToken(token);
 
-    // ✅ Helper
-    private TaiKhoanDTO toDTO(TaiKhoan tk) {
-        return TaiKhoanDTO.builder()
-                .id(tk.getId())
-                .username(tk.getUsername())
-                .vaiTro(tk.getVaiTro())
-                .isActive(tk.getIsActive())
-                .createdAt(tk.getCreatedAt())
-                .maSv(tk.getSinhVien() != null ? tk.getSinhVien().getMaSv() : null)
-                .maGv(tk.getGiangVien() != null ? tk.getGiangVien().getMaGv() : null)
-                .build();
+            if (!isValid) {
+                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Token không hợp lệ hoặc đã hết hạn");
+            }
+
+            String username = tokenProvider.getUsernameFromToken(token);
+            return ResponseEntity.ok("Token hợp lệ cho người dùng: " + username);
+        } catch (Exception e) {
+            log.error("Lỗi khi xác thực token", e);
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Lỗi xác thực token");
+        }
     }
 }

@@ -69,4 +69,9 @@ public class LopService {
                 .orElseThrow(() -> new RuntimeException("Không tìm thấy lớp"));
         return toDTO(lop);
     }
+
+    public long count() {
+        return lopRepository.count();
+    }
+
 }

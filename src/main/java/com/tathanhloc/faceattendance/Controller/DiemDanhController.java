@@ -51,4 +51,10 @@ public class DiemDanhController {
         return ResponseEntity.ok(diemDanhService.getByMaLich(maLich));
     }
 
+    @GetMapping("/today/count")
+    public ResponseEntity<Long> countTodayDiemDanh() {
+        long count = diemDanhService.countTodayDiemDanh(); // Assuming this method exists in DiemDanhService
+        return ResponseEntity.ok(count);
+    }
+
 }

@@ -1,5 +1,6 @@
 package com.tathanhloc.faceattendance.DTO;
 
+import com.tathanhloc.faceattendance.Enum.VaiTroEnum;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,7 +15,7 @@ public class TaiKhoanDTO {
     private Long id;
     private String username;
     private String passwordHash;
-    private String vaiTro;
+    private VaiTroEnum vaiTro;
     private Boolean isActive;
     private LocalDateTime createdAt;
     private String maSv;

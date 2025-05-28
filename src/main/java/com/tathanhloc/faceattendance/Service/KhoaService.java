@@ -1,10 +1,16 @@
 package com.tathanhloc.faceattendance.Service;
 
 import com.tathanhloc.faceattendance.DTO.KhoaDTO;
+import com.tathanhloc.faceattendance.Exception.ResourceNotFoundException;
 import com.tathanhloc.faceattendance.Model.Khoa;
 import com.tathanhloc.faceattendance.Repository.KhoaRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.cache.annotation.Caching;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,25 +18,44 @@ import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
-public class KhoaService {
+@Slf4j
+public class KhoaService extends BaseService<Khoa, String, KhoaDTO> {
 
     private final KhoaRepository khoaRepository;
 
-    public List<KhoaDTO> getAll() {
-        return khoaRepository.findAll()
-                .stream()
-                .map(this::toDTO)
-                .collect(Collectors.toList());
+    @Override
+    protected JpaRepository<Khoa, String> getRepository() {
+        return khoaRepository;
     }
 
-    public KhoaDTO getById(String maKhoa) {
-        Khoa khoa = khoaRepository.findById(maKhoa)
-                .orElseThrow(() -> new RuntimeException("Không tìm thấy khoa"));
-        return toDTO(khoa);
+    @Override
+    protected void setActive(Khoa entity, boolean active) {
+        entity.setIsActive(active);
+    }
+
+    @Override
+    protected boolean isActive(Khoa entity) {
+        return entity.getIsActive() != null && entity.getIsActive();
+    }
+
+    @Override
+    @Cacheable(value = "khoa")
+    public List<KhoaDTO> getAllActive() {
+        log.debug("Lấy danh sách khoa đang hoạt động từ database");
+        return super.getAllActive();
+    }
+
+    @Override
+    @Cacheable(value = "khoa", key = "#id")
+    public KhoaDTO getById(String id) {
+        log.debug("Lấy thông tin khoa với ID {} từ database", id);
+        return super.getById(id);
     }
 
     @Transactional
+    @CacheEvict(value = "khoa", allEntries = true)
     public KhoaDTO create(KhoaDTO dto) {
+        log.debug("Tạo khoa mới: {}", dto);
         if (khoaRepository.existsById(dto.getMaKhoa())) {
             throw new RuntimeException("Mã khoa đã tồn tại");
         }
@@ -39,9 +64,11 @@ public class KhoaService {
     }
 
     @Transactional
+    @CacheEvict(value = "khoa", allEntries = true)
     public KhoaDTO update(String maKhoa, KhoaDTO dto) {
+        log.debug("Cập nhật khoa với ID {}: {}", maKhoa, dto);
         Khoa existing = khoaRepository.findById(maKhoa)
-                .orElseThrow(() -> new RuntimeException("Không tìm thấy khoa"));
+                .orElseThrow(() -> new ResourceNotFoundException("Khoa", "mã khoa", maKhoa));
 
         existing.setTenKhoa(dto.getTenKhoa());
         existing.setIsActive(dto.getIsActive());
@@ -49,15 +76,31 @@ public class KhoaService {
         return toDTO(khoaRepository.save(existing));
     }
 
-    public void delete(String maKhoa) {
-        if (!khoaRepository.existsById(maKhoa)) {
-            throw new RuntimeException("Không tìm thấy khoa để xóa");
-        }
-        khoaRepository.deleteById(maKhoa);
+    @Transactional
+    @Caching(evict = {
+            @CacheEvict(value = "khoa", key = "#maKhoa"),
+            @CacheEvict(value = "khoa", allEntries = true)
+    })
+    @Override
+    public void softDelete(String maKhoa) {
+        log.debug("Xóa mềm khoa với ID: {}", maKhoa);
+        super.softDelete(maKhoa);
+    }
+
+    @Transactional
+    @Caching(evict = {
+            @CacheEvict(value = "khoa", key = "#maKhoa"),
+            @CacheEvict(value = "khoa", allEntries = true)
+    })
+    @Override
+    public void restore(String maKhoa) {
+        log.debug("Khôi phục khoa với ID: {}", maKhoa);
+        super.restore(maKhoa);
     }
 
     // Mapper
-    private KhoaDTO toDTO(Khoa khoa) {
+    @Override
+    protected KhoaDTO toDTO(Khoa khoa) {
         return KhoaDTO.builder()
                 .maKhoa(khoa.getMaKhoa())
                 .tenKhoa(khoa.getTenKhoa())
@@ -65,7 +108,8 @@ public class KhoaService {
                 .build();
     }
 
-    private Khoa toEntity(KhoaDTO dto) {
+    @Override
+    protected Khoa toEntity(KhoaDTO dto) {
         return Khoa.builder()
                 .maKhoa(dto.getMaKhoa())
                 .tenKhoa(dto.getTenKhoa())
@@ -73,9 +117,10 @@ public class KhoaService {
                 .build();
     }
 
+    @Cacheable(value = "khoa", key = "'maKhoa:' + #maKhoa")
     public KhoaDTO getByMaKhoa(String maKhoa) {
+        log.debug("Tìm khoa theo mã khoa {} từ database", maKhoa);
         return toDTO(khoaRepository.findById(maKhoa)
-                .orElseThrow(() -> new RuntimeException("Không tìm thấy khoa")));
+                .orElseThrow(() -> new ResourceNotFoundException("Khoa", "mã khoa", maKhoa)));
     }
-
 }
