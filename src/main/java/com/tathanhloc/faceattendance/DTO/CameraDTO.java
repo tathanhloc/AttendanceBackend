@@ -20,6 +20,7 @@ public class CameraDTO  {
     private String ipAddress;
 
     private String maPhong;
+    private String password;
 
     private String vungIn;
 

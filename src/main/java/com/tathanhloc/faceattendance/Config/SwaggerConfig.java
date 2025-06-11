@@ -44,4 +44,5 @@ public class SwaggerConfig {
                         .name("License")
                         .url("https://example.com/license"));
     }
+    
 }

@@ -20,4 +20,5 @@ public class OpenApiConfig {
                         .license(new License().name("Apache 2.0").url("http://springdoc.org")))
                 .components(new Components());
     }
+
 }

@@ -30,6 +30,10 @@ public class Camera {
     @JoinColumn(name = "ma_phong")
     private PhongHoc maPhong;
 
+    @Size(max = 255)
+    @Column(name = "password")
+    private String password;
+
     @Lob
     @Column(name = "vung_in")
     private String vungIn;

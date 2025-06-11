@@ -71,6 +71,7 @@ public class CameraService {
                 .vungIn(camera.getVungIn())
                 .vungOut(camera.getVungOut())
                 .active(camera.getIsActive())
+                .password(camera.getPassword()) // thêm dòng này
                 .build();
     }
 
@@ -80,6 +81,7 @@ public class CameraService {
         camera.setVungIn(dto.getVungIn());
         camera.setVungOut(dto.getVungOut());
         camera.setIsActive(dto.getActive());
+        camera.setPassword(dto.getPassword()); // thêm dòng này
 
         if (dto.getMaPhong() != null) {
             PhongHoc phong = phongHocRepository.findById(dto.getMaPhong())
